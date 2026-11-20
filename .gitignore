@@ -1,0 +1,17 @@
+# Python helper scripts & tests
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+conda-meta/
+
+# Secrets & local runtime files
+.env
+.env.*
+*.log
+*.tmp
+
+# Local scratch folders
+Python-drafts/
+.vscode/
