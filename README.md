@@ -132,4 +132,5 @@ This project is licensed under the [MIT License](LICENSE).
 * ✨ **Custom Skills & Modifications**: Copyright (c) 2026 [zaymuel](https://github.com/zaymuel).
   * **[`anti-prompt-injection`](skills/anti-prompt-injection/CREDITS.md)**: Adapted and inverted into a defensive guardrail skill from [yaklang/hack-skills](https://github.com/yaklang/hack-skills) ([`llm-prompt-injection`](https://www.skills.sh/yaklang/hack-skills/llm-prompt-injection), MIT License).
   * **[`domain-modeling`](skills/domain-modeling/CREDITS.md)**: Adapted and modified from [mattpocock/skills](https://github.com/mattpocock/skills) (`domain-modeling`, v1.3.2, Copyright (c) 2026 Matt Pocock, MIT License).
+  * **[`grilling`](skills/grilling/CREDITS.md)**: Adapted and modified from [mattpocock/skills](https://github.com/mattpocock/skills) (`grilling`, v1.3.2, Copyright (c) 2026 Matt Pocock, MIT License).
   * **[`handoff`](skills/handoff/CREDITS.md)**: Adapted and modified from [mattpocock/skills](https://github.com/mattpocock/skills) (`handoff`, v1.3.2, Copyright (c) 2026 Matt Pocock, MIT License).
