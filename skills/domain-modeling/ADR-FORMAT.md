@@ -45,3 +45,27 @@ If a decision is easy to reverse, skip it: you'll just reverse it. If it's not s
 - **Deliberate deviations from the obvious path.** "We're using manual SQL instead of an ORM because X." Anything where a reasonable reader would assume the opposite. These stop the next engineer from "fixing" something that was deliberate.
 - **Constraints not visible in the code.** "We can't use AWS because of compliance requirements." "Response times must be under 200ms because of the partner API contract."
 - **Rejected alternatives when the rejection is non-obvious.** If you considered GraphQL and picked REST for subtle reasons, record it; otherwise someone will suggest GraphQL again in six months.
+
+## Canonical Architecture Document Blueprint (`docs/00_architecture_and_decisions.md`)
+
+When creating or maintaining a central architecture and decisions document (`docs/00_architecture_and_decisions.md` or `docs/00_arquitetura_e_decisoes.md`), structure it into five core sections:
+
+1. **Project Overview & Context**: Bullet points stating the objective, primary research/engineering question, and relative links to the methodology doc (`docs/01_...`), base specification, and root `GLOSSARY.md`.
+2. **Data Inventory & Critical Paths**: Subsections (`2.1`, `2.2`, ...) per dataset or external source listing relative location, size, coverage/validity, operational parameters, cache lifecycle, and data-hygiene/deduplication rules.
+3. **Consolidated Architectural Decision Matrix (`D1` to `Dn`)**: A 3-column synthesis table indexing every major architectural, methodological, and engineering decision:
+
+   ```md
+   | Code | Component | Consolidated Architectural Decision |
+   | :--- | :--- | :--- |
+   | **D1** | **Subsystem / Scope** | **Short Decision Headline:** Concise technical specification, parameters, trade-offs, and invariants. |
+   ```
+
+4. **Module & Test Status Matrix**: A 5-column traceability table mapping each numbered pipeline stage to its code, tests, status, and concrete outputs:
+
+   ```md
+   | Step | Script | Test | Status | Primary Outputs / Artifacts |
+   | --- | --- | --- | --- | --- |
+   | **00** | [scripts/config.py](../scripts/config.py) | [tests/test_00_config.py](../tests/test_00_config.py) | ✅ Completed | Path resolution, operational parameters, and CRS |
+   ```
+
+5. **Annotated Repository Directory Tree**: A fenced `text` block illustrating the full repository hierarchy (`├──` / `└──`) with aligned `<--` comments specifying each path's responsibility and Git versioning policy (`[versioned]` vs. `[ignored in Git]`), keeping directories homogeneous (all-folders or all-files, e.g., `00 raw/`, `01 processed cache/`, `02 results/`).
