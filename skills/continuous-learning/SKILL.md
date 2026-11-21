@@ -10,12 +10,12 @@ description: Generic error-to-rule distillation workflow across any repository. 
 To avoid hardcoding project-specific fixes in the global system prompt, continuous self-improvement operates via a **two-layer architecture**:
 
 1. **Layer 1 — Lightweight Always-On Trigger (`~/.gemini/GEMINI.md` Directive 12):** Remains active in every session with minimal token overhead (~4 lines), routing any command failure, unexpected exception, or user correction to this skill.
-2. **Layer 2 — On-Demand Agnostic Skill (`continuous-learning`):** Loaded via progressive disclosure only when an incident occurs, handling repository auto-bootstrap, structural classification, and rule distillation.
+2. **Layer 2 — On-Demand Portable Skill (`continuous-learning`):** Loaded via progressive disclosure only when an incident occurs, handling repository auto-bootstrap, structural classification, and rule distillation.
 
 ```mermaid
 flowchart LR
     A["Command Error / Exception /<br/>User Correction"] --> B["Layer 1: Always-On Trigger<br/>(Global GEMINI.md - Directive 12)"]
-    B -->|"Activates Skill On-Demand"| C["Layer 2: Agnostic Global Skill<br/>(continuous-learning)"]
+    B -->|"Activates Skill On-Demand"| C["Layer 2: Portable Global Skill<br/>(continuous-learning)"]
     C --> D{"Does docs/agents/errors.md<br/>exist in repo?"}
     D -->|"No"| E["Auto-Bootstrap:<br/>Create ledger + AGENTS.md"]
     D -->|"Yes"| F["1. Log on Failure (ERR-XXX)<br/>& Apply Remediation"]
@@ -50,7 +50,7 @@ Activate this skill **immediately before retrying or proceeding** whenever ANY o
 
 ## 4-Step Execution Loop (`Bootstrap -> Log -> Analyze -> Distill`)
 
-### Step 0: Repo-Agnostic Auto-Bootstrap
+### Step 0: Cross-Repo Auto-Bootstrap
 
 On the first failure in any new repository:
 
@@ -66,7 +66,7 @@ Before applying a fix or retrying a failed action, append one structured row to 
 - **Exact Error / Symptom:** Verbatim exception class/message or observed defect.
 - **Root Cause:** Underlying structural mechanism (not just "typo").
 - **Immediate Remediation:** Targeted patch applied now.
-- **Extracted Principle / Pattern:** Language-agnostic structural category (`[PATH-ENV]`, `[MISSING-DEP]`, `[API-CONTRACT]`, `[TEST-ISOLATION]`, `[DOC-BOUNDARY]`, `[SYMBOL-CHECK]`, `[DATA-SCHEMA]`, `[TOOLCHAIN]`) and general takeaway.
+- **Extracted Principle / Pattern:** Language-independent structural category (`[PATH-ENV]`, `[MISSING-DEP]`, `[API-CONTRACT]`, `[TEST-ISOLATION]`, `[DOC-BOUNDARY]`, `[SYMBOL-CHECK]`, `[DATA-SCHEMA]`, `[TOOLCHAIN]`) and general takeaway.
 - **Status:** Set `⏳ Monitoring` for isolated first-time events, or `✅ Distilled` once promoted to a rule.
 
 ### Step 2: Cross-Incident Pattern Analysis
