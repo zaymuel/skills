@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "zaymuel",
+  "version": "1.0.0",
+  "description": "Zaymuel's modular AI agent skills collection.",
+  "owner": {
+    "name": "zaymuel"
+  },
+  "plugins": [
+    {
+      "name": "zaymuel-skills",
+      "description": "A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, continuous learning, formatting, cartography, and paper critique.",
+      "author": {
+        "name": "zaymuel"
+      },
+      "category": "productivity",
+      "source": "./"
+    }
+  ]
+}

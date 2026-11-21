@@ -53,7 +53,16 @@ All temporary scripts, probes, and scratch explorations are strictly quarantined
 
 ## ❓ Common Questions & Design Rationale
 
-### Why should exploratory scripts edit a single sequential file (`01_<topic>.py`) in place while local maintainer exclusions go into `.git/info/exclude` instead of `.gitignore`?
+### Clean Root and Single-File Drafts
 
-1. **Preventing Draft Proliferation and Token Bloat**: Without single-file discipline, agents frequently spawn `01a_test.py`, `01_test_v2.py`, and `01_test_backup.py` across debugging iterations. Editing `01_<topic>.py` in place preserves a linear Git/editor diff history, keeps `python-drafts/` navigable, and avoids re-reading redundant script variants into the context window.
-2. **Protecting Public `.gitignore` Hygiene and Privacy**: Because `.gitignore` is committed and published, adding personal scratch folders, local usernames, or maintainer-only files (`AGENTS.md`, `TODO.md`, `.agents/`) leaks local directory taxonomy to external users and can confound downstream agents that clone the repository. Placing local maintainer exclusions in `.git/info/exclude` gives identical Git-ignore behavior locally while keeping the published `.gitignore` strictly generic.
+*Why keep the project root strictly clean while quarantining exploratory scripts into single sequential files (`01_<topic>.py`) edited in place?*
+
+1. **Keeping the Project Root Navigable**: Reserving the root strictly for permanent repository files (`README.md`, `pyproject.toml`, tracked configs) prevents throwaway probes from cluttering directory listings, risking accidental Git commits, or confusing automated tooling.
+2. **Preventing Draft Proliferation and Token Bloat**: Without single-file discipline inside `python-drafts/`, agents frequently spawn `01a_test.py`, `01_test_v2.py`, and `01_test_backup.py` across debugging iterations. Editing `01_<topic>.py` in place preserves a linear Git/editor diff history, keeps scratch work organized by topic, and avoids re-reading redundant script variants into the context window.
+
+### Privacy via Path Anonymization and Local Git Excludes
+
+*Why pair mandatory path anonymization (`C:\Users\username\...`) with placing personal and local maintainer exclusions in `.git/info/exclude` instead of `.gitignore`?*
+
+1. **Closing Both Halves of Personal Metadata Leakage**: Anonymizing paths across tests, docs, and code prevents leaking your OS username (`C:\Users\<actual_user>\...`), while keeping personal folders and local machine paths out of the tracked `.gitignore` prevents leaking private directory names or local folder taxonomy through repository metadata.
+2. **Avoiding Downstream Agent Confusion**: Because `.gitignore` is committed and published, listing local maintainer files (`AGENTS.md`, `TODO.md`, `.agents/`) there exposes internal workflow clutter. Placing personal or maintainer exclusions in `.git/info/exclude` (or `~/.gitignore_global`) gives identical local Git-ignore behavior while keeping the published `.gitignore` strictly generic.

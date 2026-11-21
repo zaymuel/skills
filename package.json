@@ -1,0 +1,41 @@
+{
+  "name": "zaymuel-skills",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, continuous learning, formatting, cartography, and paper critique.",
+  "author": "zaymuel",
+  "license": "MIT",
+  "homepage": "https://github.com/zaymuel/skills#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaymuel/skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zaymuel/skills/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "skills",
+    "agent-skills",
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "antigravity",
+    "cursor",
+    "security",
+    "prompt-injection",
+    "continuous-learning",
+    "code-quality",
+    "cartography",
+    "research"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "plugin.json",
+    ".claude-plugin/",
+    "docs/",
+    "skills/"
+  ]
+}
