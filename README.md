@@ -151,6 +151,9 @@ Critical design questions probing each skill's core trade-off, with answers in [
 
 ```text
 zaymuel/skills/
+├── .antigravity-plugin/                            <-- Google Antigravity plugin manifest
+├── .claude-plugin/                                 <-- Claude Code plugin & marketplace manifests
+├── .codex-plugin/                                  <-- OpenAI Codex plugin manifest
 ├── LICENSE                                         <-- MIT License
 ├── README.md                                       <-- Installation guide & skill catalog
 ├── package.json                                    <-- Package metadata for skill installers
