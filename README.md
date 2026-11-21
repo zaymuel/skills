@@ -79,7 +79,7 @@ npx skills@latest add zaymuel/skills
 
 ```bash
 /plugin marketplace add https://github.com/zaymuel/skills
-/plugin install zaymuel-skills@zaymuel-skills
+/plugin install zaymuel-skills@zaymuel
 ```
 
 **Manual Installation (Global or Project Scope):**
@@ -156,8 +156,10 @@ zaymuel/skills/
 ├── .codex-plugin/                                  <-- OpenAI Codex plugin manifest
 ├── LICENSE                                         <-- MIT License
 ├── README.md                                       <-- Installation guide & skill catalog
-├── package.json                                    <-- Package metadata for skill installers
-├── plugin.json                                     <-- Plugin manifest for agent marketplaces
+├── package.json                                    <-- Package metadata & maintenance scripts
+├── hooks.json                                      <-- Antigravity SessionStart update-check hook
+├── hooks/                                          <-- Claude Code SessionStart update-check hook
+├── scripts/                                        <-- Version sync & update-check helper scripts
 ├── docs/                                           <-- Per-skill documentation & architecture guides
 └── skills/
     └── <skill-name>/

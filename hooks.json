@@ -1,0 +1,11 @@
+{
+  "zaymuel-skills-update-check": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "node ./scripts/check-updates.mjs",
+        "timeout": 10
+      }
+    ]
+  }
+}
