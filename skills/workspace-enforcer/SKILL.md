@@ -64,8 +64,8 @@ Activate this skill at the start of any software engineering, scripting, debuggi
     - Never paste pipeline documentation, implementation callouts, alerts (`[!NOTE]`, `[!IMPORTANT]`, `[!WARNING]`), API details, routine names, file paths, or methodological debates inside `GLOSSARY.md`.
     - All architecture decisions belong in `docs/00_architecture_and_decisions.md` (or `00_arquitetura_e_decisoes.md`), methodological formulations in `docs/01_methodology_...`, and technical dossiers in dedicated ADRs or topic docs.
 
-11. **MANDATORY FAILURE LOGGING & RULE DISTILLATION LOOP (`continuous-learning` skill)**
-    - Whenever a command execution fails, an unexpected exception/import error occurs, or the user points out a recurring mistake, trigger the `continuous-learning` skill to auto-bootstrap/log in `docs/agents/errors.md`, analyze structural patterns, and distill permanent preventive rules into `AGENTS.md` (or propose global promotion to `GEMINI.md` / `zaymuel-skills`).
+11. **MANDATORY FAILURE LOGGING & RULE DISTILLATION LOOP (`stumble-learning` skill)**
+    - Whenever a command execution fails, an unexpected exception/import error occurs, or the user points out a recurring mistake, trigger the `stumble-learning` skill to auto-bootstrap/log in `docs/agents/errors.md`, analyze structural patterns, and distill permanent preventive rules into `AGENTS.md` (or propose global promotion to `GEMINI.md` / `zaymuel-skills`).
 
 12. **LATEX SECTION TITLES WITH MATH (`\texorpdfstring`)**
     - In `.tex` headings (`\section`, `\subsection`, etc.), always wrap `$...$` in `\texorpdfstring{<TeX math>}{<plain-text>}` per [`code-maintainability-formatter/references/latex.md`](../code-maintainability-formatter/references/latex.md).

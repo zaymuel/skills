@@ -47,7 +47,7 @@ All temporary scripts, probes, and scratch explorations are strictly quarantined
 * 💾 **Persistent Codification of Chat Decisions**: Immediately records architectural decisions, methodological clarifications, and domain terminology resolved in chat into their canonical repository docs (`docs/00_...`, `docs/01_...`, `GLOSSARY.md`, or ADRs).
 * ❓ **Chat-Native Questions**: Asks clarifying or design questions directly in chat using numbered emoji prompts (`❓ **Q1**` / `➡️ <recommendation>`) instead of interactive UI question buttons.
 * 📊 **Mermaid Diagrams for Complexity**: Uses native Mermaid fenced blocks (`flowchart`, `sequenceDiagram`, `stateDiagram-v2`, `erDiagram`, etc.) whenever workflows or architectures outgrow raw text or plain tables.
-* 🔄 **Automatic Error-to-Rule Trigger**: Routes command failures, unexpected exceptions, and user corrections directly to [`continuous-learning`](continuous-learning.md).
+* 🔄 **Automatic Error-to-Rule Trigger**: Routes command failures, unexpected exceptions, and user corrections directly to [`stumble-learning`](stumble-learning.md).
 
 ---
 

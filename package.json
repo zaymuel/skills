@@ -2,7 +2,7 @@
   "name": "zaymuel-skills",
   "version": "1.3.0",
   "private": true,
-  "description": "A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, continuous learning, formatting, cartography, and paper critique.",
+  "description": "A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, stumble learning, formatting, cartography, and paper critique.",
   "author": "zaymuel",
   "license": "MIT",
   "homepage": "https://github.com/zaymuel/skills#readme",
@@ -30,7 +30,7 @@
     "cursor",
     "security",
     "prompt-injection",
-    "continuous-learning",
+    "stumble-learning",
     "code-quality",
     "cartography",
     "research"

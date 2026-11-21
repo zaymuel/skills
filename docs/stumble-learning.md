@@ -1,9 +1,9 @@
-# 🔄 Continuous Learning (`continuous-learning`)
+# 🔄 Stumble Learning (`stumble-learning`)
 
 | | Quick Links |
 | :---: | :--- |
 | 🏠 | [Back to README](../README.md) |
-| 📄 | [Skill Specification (`SKILL.md`)](../skills/continuous-learning/SKILL.md) |
+| 📄 | [Skill Specification (`SKILL.md`)](../skills/stumble-learning/SKILL.md) |
 
 A project-independent, two-layer error-to-rule distillation loop that turns command failures, unexpected exceptions, and user corrections into permanent preventive policies.
 
@@ -22,7 +22,7 @@ This skill activates automatically before retrying or proceeding whenever any of
 
 ## 🏗️ Two-Layer Architecture & Execution Loop
 
-Instead of bloating global system prompts with project-specific fixes, continuous learning splits responsibility into two layers:
+Instead of bloating global system prompts with project-specific fixes, `stumble-learning` splits responsibility into two layers:
 
 1. **Layer 1 (Always-On Trigger)**: A lightweight (~4-line) directive in your global agent instructions (`CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`) that watches for failures and corrections with minimal token overhead.
 2. **Layer 2 (On-Demand Portable Skill)**: Loaded via progressive disclosure only when an incident occurs, handling ledger bootstrapping, root-cause taxonomy, verification, and rule distillation.
@@ -30,7 +30,7 @@ Instead of bloating global system prompts with project-specific fixes, continuou
 ```mermaid
 flowchart LR
     A["Command Error / Exception /<br/>User Correction"] --> B["Layer 1: Always-On Trigger<br/>(CLAUDE.md / AGENTS.md / GEMINI.md)"]
-    B -->|"Activates Skill On-Demand"| C["Layer 2: Portable Global Skill<br/>(continuous-learning)"]
+    B -->|"Activates Skill On-Demand"| C["Layer 2: Portable Global Skill<br/>(stumble-learning)"]
     C --> D{"Does error ledger<br/>exist in repo?"}
     D -->|"No"| E["Step 0: Auto-Bootstrap<br/>Create ledger + AGENTS.md"]
     D -->|"Yes"| F["Step 1: Log on Failure (ERR-XXX)<br/>& Apply Remediation"]

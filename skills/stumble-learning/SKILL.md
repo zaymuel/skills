@@ -1,21 +1,21 @@
 ---
-name: continuous-learning
+name: stumble-learning
 description: Generic error-to-rule distillation workflow across any repository. Automatically logs command failures, unexpected exceptions, and user corrections to a local incident ledger (docs/agents/errors.md), analyzes recurring structural patterns, and distills permanent preventive policies into AGENTS.md or global skills/rules. Trigger immediately upon any execution error, test failure, wrong assumption, or user correction.
 ---
 
-# Continuous Learning: Generic Error-to-Rule Distillation Workflow
+# Stumble Learning: Generic Error-to-Rule Distillation Workflow
 
 ## Purpose & Two-Layer Architecture
 
-To avoid hardcoding project-specific fixes in the global system prompt, continuous self-improvement operates via a **two-layer architecture**:
+To avoid hardcoding project-specific fixes in the global system prompt, stumble-driven self-improvement operates via a **two-layer architecture**:
 
 1. **Layer 1 — Lightweight Always-On Trigger (`~/.gemini/GEMINI.md` Directive 12):** Remains active in every session with minimal token overhead (~4 lines), routing any command failure, unexpected exception, or user correction to this skill.
-2. **Layer 2 — On-Demand Portable Skill (`continuous-learning`):** Loaded via progressive disclosure only when an incident occurs, handling repository auto-bootstrap, structural classification, and rule distillation.
+2. **Layer 2 — On-Demand Portable Skill (`stumble-learning`):** Loaded via progressive disclosure only when an incident occurs, handling repository auto-bootstrap, structural classification, and rule distillation.
 
 ```mermaid
 flowchart LR
     A["Command Error / Exception /<br/>User Correction"] --> B["Layer 1: Always-On Trigger<br/>(Global GEMINI.md - Directive 12)"]
-    B -->|"Activates Skill On-Demand"| C["Layer 2: Portable Global Skill<br/>(continuous-learning)"]
+    B -->|"Activates Skill On-Demand"| C["Layer 2: Portable Global Skill<br/>(stumble-learning)"]
     C --> D{"Does docs/agents/errors.md<br/>exist in repo?"}
     D -->|"No"| E["Auto-Bootstrap:<br/>Create ledger + AGENTS.md"]
     D -->|"Yes"| F["1. Log on Failure (ERR-XXX)<br/>& Apply Remediation"]
