@@ -6,7 +6,7 @@ A general-use collection of modular AI agent skills (`SKILL.md`) that work acros
 
 * [Included Skills](#-included-skills): Overview of all 7 skills under `skills/`.
 * [Installation](#-installation): Setup commands for `npx skills` and all major coding agents.
-* [How the Continuous Learning Loop Works](#-how-the-continuous-learning-loop-works): Visual workflow of the error-to-rule distillation process.
+* [Common Questions Regarding the Code](#-common-questions-regarding-the-code): Design discussions and links to each skill's full rationale in `docs/`.
 * [Repository Structure](#-repository-structure): Directory layout of the plugin manifest, skills, and reference guides.
 * [License & Attribution](#-license--attribution): MIT license details and community credits.
 
@@ -14,23 +14,40 @@ A general-use collection of modular AI agent skills (`SKILL.md`) that work acros
 
 ## 🧠 Included Skills
 
-All skills live under [`skills/`](skills/) as self-contained folders with a `SKILL.md` specification and optional reference guides:
+All skills live under [`skills/`](skills/) as self-contained folders with a `SKILL.md` specification, paired with human-friendly guides under [`docs/`](docs/):
 
-| Skill | Category | Summary |
-| :--- | :--- | :--- |
-| 🕵️ **[`anti-prompt-injection`](skills/anti-prompt-injection/SKILL.md)** | Security & Input Guardrail | Scans uploaded PDFs, documents, notebooks, and external web content for hidden text, obfuscated instructions, indirect prompt injection payloads, and unsafe remote file downloads before executing user tasks. |
-| 💻 **[`terminal-enforcer`](skills/terminal-enforcer/SKILL.md)** | Command & Pipeline Safety | Enforces read-only Git and PowerShell inspection allowlists, explicit user authorization gates for Python script execution (restricting inline `python -c` to 1-2 trivial lines), and strict tool separation (never mixing Git and PowerShell on the same command line via `\|`, `;`, `&&`, or `\|\|`, and forbidding unquoted parenthesized subqueries). |
-| 🗂️ **[`workspace-enforcer`](skills/workspace-enforcer/SKILL.md)** | Repository Hygiene & Architecture | Enforces clean root directory structure, sequential single-file draft quarantine (`01_<topic>.py`), path anonymization (`C:\Users\username\...`), `.gitignore` privacy (no personal folders or local paths), Git index protection, 2-level hierarchical response reporting, `TODO.md`-first tracking, the 5-section architecture blueprint (`docs/00_architecture_and_decisions.md`), `GLOSSARY.md` purity, author voice preservation (no em-dashes), and chat-native questions (`❓ **Q1**`). |
-| 🔄 **[`continuous-learning`](skills/continuous-learning/SKILL.md)** | Self-Improvement & Error Distillation | Repo-agnostic 2-layer error-to-rule workflow. Auto-bootstraps an empirical incident ledger (`docs/agents/errors.md`) and operational contract (`AGENTS.md`) on the first failure, classifies root causes by structural taxonomy (`PATH-ENV`, `MISSING-DEP`, `API-CONTRACT`, `TEST-ISOLATION`, `DOC-BOUNDARY`, `TOOLCHAIN`), and distills verified fixes into permanent rules. |
-| 🧹 **[`code-maintainability-formatter`](skills/code-maintainability-formatter/SKILL.md)** | Code & LaTeX Quality | Guides agents to write code and technical manuscripts that natively conform to formatter and linter standards from the first draft (including dedicated reference guides for [Python PEP 8 / `autopep8`](skills/code-maintainability-formatter/references/python.md) and [LaTeX `latexindent` / `chktex`](skills/code-maintainability-formatter/references/latex.md)), paired with high-signal "why" and "what" comments. |
-| 🗺️ **[`map-crafting`](skills/map-crafting/SKILL.md)** | Geospatial & Cartographic Design | Cartographic standards for thematic, choropleth, facility-location, and bivariate maps: composable layer pipelines, metric projected CRS, domain filtering (`NaN` masking with neutral gray rendering), colorblind-safe palettes with high-contrast hydrography, distribution-aware binning, non-overlapping two-zone legends, and test output isolation. |
-| 📄 **[`paper-analysis-questions`](skills/paper-analysis-questions/SKILL.md)** | Research & Literature Review | Generates 6-9 progressive, high-rigor critical analysis questions from academic papers and technical reports across five analytical axes: metric limits, conceptual distinctions, methodological/statistical critique, causal mechanisms behind counterintuitive findings, and applied trade-offs. |
+| Skill (`SKILL.md`) | Category | Summary | Guide |
+| :--- | :--- | :--- | :---: |
+| 🕵️ **[`anti-prompt-injection`](skills/anti-prompt-injection/SKILL.md)** | Security & Input Guardrail | Scans uploaded PDFs, documents, notebooks, and external web content for hidden text, obfuscated instructions, indirect prompt injection payloads, and unsafe remote file downloads before executing user tasks. | [📖 Docs](docs/anti-prompt-injection.md) |
+| 💻 **[`terminal-enforcer`](skills/terminal-enforcer/SKILL.md)** | Command & Pipeline Safety | Enforces read-only Git and PowerShell inspection allowlists, explicit user authorization gates for Python script execution (restricting inline `python -c` to 1-2 trivial lines), and strict tool separation (never mixing Git and PowerShell on the same command line via `\|`, `;`, `&&`, or `\|\|`, and forbidding unquoted parenthesized subqueries). | [📖 Docs](docs/terminal-enforcer.md) |
+| 🗂️ **[`workspace-enforcer`](skills/workspace-enforcer/SKILL.md)** | Repository Hygiene & Architecture | Enforces clean root directory structure, sequential single-file draft quarantine (`01_<topic>.py`), path anonymization (`C:\Users\username\...`), `.gitignore` privacy (no personal folders or local paths), Git index protection, 2-level hierarchical response reporting, `TODO.md`-first tracking, the 5-section architecture blueprint (`docs/00_architecture_and_decisions.md`), `GLOSSARY.md` purity, author voice preservation (no em-dashes), and chat-native questions (`❓ **Q1**`). | [📖 Docs](docs/workspace-enforcer.md) |
+| 🔄 **[`continuous-learning`](skills/continuous-learning/SKILL.md)** | Self-Improvement & Error Distillation | Repo-agnostic 2-layer error-to-rule workflow. Auto-bootstraps an empirical incident ledger (`docs/agents/errors.md`) and operational contract (`AGENTS.md`) on the first failure, classifies root causes by structural taxonomy (`PATH-ENV`, `MISSING-DEP`, `API-CONTRACT`, `TEST-ISOLATION`, `DOC-BOUNDARY`, `TOOLCHAIN`), and distills verified fixes into permanent rules. | [📖 Docs](docs/continuous-learning.md) |
+| 🧹 **[`code-maintainability-formatter`](skills/code-maintainability-formatter/SKILL.md)** | Code & LaTeX Quality | Guides agents to write code and technical manuscripts that natively conform to formatter and linter standards from the first draft (including dedicated reference guides for [Python PEP 8 / `autopep8`](skills/code-maintainability-formatter/references/python.md) and [LaTeX `latexindent` / `chktex`](skills/code-maintainability-formatter/references/latex.md)), paired with high-signal "why" and "what" comments. | [📖 Docs](docs/code-maintainability-formatter.md) |
+| 🗺️ **[`map-crafting`](skills/map-crafting/SKILL.md)** | Geospatial & Cartographic Design | Cartographic standards for thematic, choropleth, facility-location, and bivariate maps: composable layer pipelines, metric projected CRS, domain filtering (`NaN` masking with neutral gray rendering), colorblind-safe palettes with high-contrast hydrography, distribution-aware binning, non-overlapping two-zone legends, and test output isolation. | [📖 Docs](docs/map-crafting.md) |
+| 📄 **[`paper-analysis-questions`](skills/paper-analysis-questions/SKILL.md)** | Research & Literature Review | Generates 6-9 progressive, high-rigor critical analysis questions from academic papers and technical reports across five analytical axes: metric limits, conceptual distinctions, methodological/statistical critique, causal mechanisms behind counterintuitive findings, and applied trade-offs. | [📖 Docs](docs/paper-analysis-questions.md) |
+
+> [!TIP]
+> ✅ **Standout Feature: TODO-First Task Tracking (`TODO.md`)**
+> One of the highest-impact workflows in [`workspace-enforcer`](docs/workspace-enforcer.md) is **TODO-First Tracking**. Before modifying a single line of code, the agent logs every request, bugfix, or multi-step feature as a pending `- [ ]` item in root `TODO.md` (with 2-space indented subtasks for multi-step work) and checks it off `[X]` upon completion. In practice, this turns `TODO.md` into a live, zero-friction audit trail that prevents dropped requirements across long conversations, makes switching models or agents seamless, and automatically prunes completed items from staging checklists.
 
 ---
 
 ## 📦 Installation
 
 You can install the entire skill suite or pick individual skill folders for your preferred AI coding agent.
+
+### 💬 Option 0: Ask Your Agent to Install It (Easiest)
+
+Paste a prompt with this repository's link directly into your AI coding agent (Claude Code, Codex, Gemini CLI, Google Antigravity, Cursor, etc.):
+
+```text
+Install the skills from https://github.com/zaymuel/skills into my skills directory.
+```
+
+If it succeeds, jump straight into [Common Questions Regarding the Code](#-common-questions-regarding-the-code) to explore the design trade-offs behind each skill :)
+
+> [!WARNING]
+> If your agent cannot install it automatically, fall back to any of the options below.
 
 ### ⚡ Option 1: Universal Installer (`npx skills`)
 
@@ -98,25 +115,17 @@ git clone https://github.com/zaymuel/skills.git "C:\Users\username\.gemini\confi
 
 ---
 
-## 🔄 How the Continuous Learning Loop Works
+## ❓ Common Questions Regarding the Code
 
-When paired with a lightweight always-on trigger in your agent's global instructions (`CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`), [`continuous-learning`](skills/continuous-learning/SKILL.md) turns runtime errors and user corrections into permanent repository rules:
+Critical design questions probing each skill's core trade-off, with answers in [`docs/`](docs/):
 
-```mermaid
-flowchart LR
-    A["Command Error / Exception /<br/>User Correction"] --> B["Layer 1: Always-On Trigger<br/>(CLAUDE.md / AGENTS.md / GEMINI.md)"]
-    B -->|"Activates Skill On-Demand"| C["Layer 2: Agnostic Global Skill<br/>(continuous-learning / workspace-enforcer)"]
-    C --> D{"Does docs/agents/errors.md<br/>exist in repo?"}
-    D -->|"No"| E["Auto-Bootstrap:<br/>Create ledger + AGENTS.md"]
-    D -->|"Yes"| F["1. Log on Failure (ERR-XXX)<br/>& Apply Remediation"]
-    E --> F
-    F --> V{"Did remediation<br/>resolve the issue?"}
-    V -->|"No"| F
-    V -->|"Yes"| G["2. Recurring Pattern Analysis"]
-    G --> H{"Local or Universal Rule?"}
-    H -->|"Repo-Specific"| I["3a. Distill rule in AGENTS.md<br/>& mark ERR-XXX Distilled"]
-    H -->|"Universal Pattern"| J["3b. Update global rules<br/>or zaymuel/skills"]
-```
+1. 🕵️ **[`anti-prompt-injection`](skills/anti-prompt-injection/SKILL.md)**: *Why compare a document's extracted text layer against its visual rendering and halt to quote suspicious strings in an inert code block, rather than silently stripping hidden instructions and continuing?* -> [Read Answer](docs/anti-prompt-injection.md#-common-questions--design-rationale)
+2. 💻 **[`terminal-enforcer`](skills/terminal-enforcer/SKILL.md)**: *If chaining shell commands with `;` or piping `git` into PowerShell reduces turn count, why forbid cross-binary pipelines and require separate parallel tool calls alongside a 1-2 line cap on `python -c`?* -> [Read Answer](docs/terminal-enforcer.md#-common-questions--design-rationale)
+3. 🗂️ **[`workspace-enforcer`](skills/workspace-enforcer/SKILL.md)**: *Why should exploratory scripts edit a single sequential file (`01_<topic>.py`) in place while local maintainer exclusions go into `.git/info/exclude` instead of `.gitignore`?* -> [Read Answer](docs/workspace-enforcer.md#-common-questions--design-rationale)
+4. 🔄 **[`continuous-learning`](skills/continuous-learning/SKILL.md)**: *Why split self-improvement into an empirical error ledger (`errors.md`) and a separate operational contract (`AGENTS.md`) gated by a verification check, rather than appending every bug fix directly to the global system prompt?* -> [Read Answer](docs/continuous-learning.md#-common-questions--design-rationale)
+5. 🧹 **[`code-maintainability-formatter`](skills/code-maintainability-formatter/SKILL.md)**: *When writing Python with an aggressive `autopep8 -aa` mindset, why must ORM filter expressions intentionally violate `E711` (`x == None` with `# noqa: E711`), and why pair "why" comments with structural "what" comments on nested data?* -> [Read Answer](docs/code-maintainability-formatter.md#-common-questions--design-rationale)
+6. 🗺️ **[`map-crafting`](skills/map-crafting/SKILL.md)**: *In thematic and bivariate cartography, how does coercing ineligible or zero-denominator spatial units to `0` instead of masking them to neutral-gray `NaN` distort quantile bins and visual interpretation?* -> [Read Answer](docs/map-crafting.md#-common-questions--design-rationale)
+7. 📄 **[`paper-analysis-questions`](skills/paper-analysis-questions/SKILL.md)**: *Why do closed-form dichotomies and cross-paper tension prompts produce deeper technical critiques than open-ended section summaries?* -> [Read Answer](docs/paper-analysis-questions.md#-common-questions--design-rationale)
 
 ---
 
@@ -127,25 +136,12 @@ zaymuel/skills/
 ├── LICENSE                                         <-- MIT License
 ├── README.md                                       <-- Installation guide & skill catalog
 ├── plugin.json                                     <-- Plugin manifest for agent marketplaces
+├── docs/                                           <-- Per-skill documentation & architecture guides
 └── skills/
-    ├── anti-prompt-injection/
-    │   ├── CREDITS.md                              <-- Attribution to yaklang/hack-skills
-    │   └── SKILL.md                                <-- Prompt-injection & remote-download guardrail
-    ├── code-maintainability-formatter/
-    │   ├── SKILL.md                                <-- Formatter-first coding & commenting workflow
-    │   └── references/
-    │       ├── latex.md                            <-- LaTeX (latexindent & chktex) rules
-    │       └── python.md                           <-- Python (PEP 8 & autopep8) rules
-    ├── continuous-learning/
-    │   └── SKILL.md                                <-- Error-to-rule distillation workflow
-    ├── map-crafting/
-    │   └── SKILL.md                                <-- Thematic & bivariate cartography standards
-    ├── paper-analysis-questions/
-    │   └── SKILL.md                                <-- Academic paper critical-question generator
-    ├── terminal-enforcer/
-    │   └── SKILL.md                                <-- Read-only command allowlists & tool separation
-    └── workspace-enforcer/
-        └── SKILL.md                                <-- Repository hygiene, privacy & doc blueprints
+    └── <skill-name>/
+        ├── SKILL.md                                <-- Skill specification & instructions
+        ├── CREDITS.md                              <-- Optional source attribution
+        └── references/                             <-- Optional language & domain reference guides
 ```
 
 ---
