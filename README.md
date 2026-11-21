@@ -28,7 +28,7 @@ All skills live under [`skills/`](skills/) as self-contained folders with a `SKI
 
 > [!TIP]
 > ✅ **Standout Feature: TODO-First Task Tracking (`TODO.md`)**
-> One of the highest-impact workflows in [`workspace-enforcer`](docs/workspace-enforcer.md) is **TODO-First Tracking**. Before modifying a single line of code, the agent logs every request, bugfix, or multi-step feature as a pending `- [ ]` item in root `TODO.md` (with 2-space indented subtasks for multi-step work) and checks it off `[X]` upon completion. In practice, this turns `TODO.md` into a live, zero-friction audit trail that prevents dropped requirements across long conversations, makes switching models or agents seamless, and automatically prunes completed items from staging checklists.
+> One of the highest-impact workflows in [`workspace-enforcer`](docs/workspace-enforcer.md): the agent logs every request as `- [ ]` items in `TODO.md` before touching code and checks it off `[X]` when done, keeping a live changelog that prevents dropped tasks across long chats or model switches.
 
 ---
 
@@ -47,25 +47,25 @@ Install the skills from https://github.com/zaymuel/skills into my skills directo
 If it succeeds, jump straight into [Common Questions](#-common-questions) to explore the design trade-offs behind each skill :)
 
 > [!WARNING]
-> If your agent cannot install it automatically, use the copy-and-paste steps below or fall back to Options 1-4.
+> If your agent cannot install it automatically, use the copy-and-paste steps below, `npx skills`, or the [agent-specific setup guide](docs/INSTALL.md).
 
 ### 📋 Installing Selected Skills Only (Copy & Paste)
 
 Want only specific modules, or using an agent that cannot fetch GitHub URLs directly? Install any individual skill in 3 steps:
 
 1. **Access the skill**: Open the skill's `SKILL.md` link from the [Included Skills](#-included-skills) table above (for example, [`continuous-learning/SKILL.md`](skills/continuous-learning/SKILL.md)).
-2. **Copy the raw file**: Click GitHub's **Copy raw file** button (or copy the full `SKILL.md` text, including the YAML frontmatter between `---`).
+2. **Copy the raw file**: Click GitHub's **Copy raw file** button (or copy the full `SKILL.md` text, including the text between `---`).
 3. **Paste into your agent**: Paste the copied content into your agent chat:
 
 ```text
-Save this as a skill in my skills directory:
+Please save this as a skill:
 
 <paste SKILL.md content here>
 ```
 
 *(If a skill includes a `references/` folder, such as [`code-maintainability-formatter`](skills/code-maintainability-formatter/SKILL.md), repeat the same steps for any reference files you need.)*
 
-### ⚡ Option 1: Universal Installer (`npx skills`)
+### ⚡ Universal Installer (`npx skills`)
 
 Copy editable skill folders directly into your global or project configuration for any supported agent:
 
@@ -73,61 +73,14 @@ Copy editable skill folders directly into your global or project configuration f
 npx skills@latest add zaymuel/skills
 ```
 
-### 🤖 Option 2: Claude Code
+### 🛠️ Agent-Specific & Plugin Installation
 
-**Via Plugin Marketplace (Recommended):**
+For native plugin marketplaces, manual directory paths, and `SessionStart` update-check hook setup (including Codex `/hooks` approval), see **[`docs/INSTALL.md`](docs/INSTALL.md)**:
 
-```bash
-/plugin marketplace add https://github.com/zaymuel/skills
-/plugin install zaymuel-skills@zaymuel
-```
-
-**Manual Installation (Global or Project Scope):**
-
-Clone this repository and copy the desired skill folders into `~/.claude/skills/` (global) or `.claude/skills/` (project-scoped):
-
-```bash
-git clone https://github.com/zaymuel/skills.git temp-skills
-mkdir -p ~/.claude/skills
-cp -r temp-skills/skills/* ~/.claude/skills/
-rm -rf temp-skills
-```
-
-### 🧠 Option 3: OpenAI Codex (Codex CLI)
-
-**Via Plugin Marketplace:**
-
-```bash
-codex plugin marketplace add zaymuel/skills
-codex plugin add zaymuel-skills@zaymuel
-```
-
-**Manual Installation:**
-
-Copy the skills into your global Codex skills directory (`~/.codex/skills/`) or into your project's `skills/` directory (or point `CODEX_SKILLS_DIR` to the cloned `skills/` folder):
-
-```bash
-git clone https://github.com/zaymuel/skills.git temp-skills
-mkdir -p ~/.codex/skills
-cp -r temp-skills/skills/* ~/.codex/skills/
-rm -rf temp-skills
-```
-
-### 💎 Option 4: Gemini CLI & Google Antigravity
-
-**Via Gemini CLI:**
-
-```bash
-gemini skills install https://github.com/zaymuel/skills.git
-```
-
-**Manual Plugin Installation (Google Antigravity / Gemini CLI):**
-
-Clone directly into your user plugins directory (`~/.gemini/config/plugins/zaymuel-skills` on macOS/Linux, or `C:\Users\username\.gemini\config\plugins\zaymuel-skills` on Windows, replacing `username` with your Windows username):
-
-```powershell
-git clone https://github.com/zaymuel/skills.git "C:\Users\username\.gemini\config\plugins\zaymuel-skills"
-```
+* 🤖 **[Claude Code](docs/INSTALL.md#-claude-code)** (Plugin Marketplace & `~/.claude/skills/`)
+* 🧠 **[OpenAI Codex](docs/INSTALL.md#-openai-codex-codex-cli)** (Plugin Marketplace, `~/.codex/skills/`, & `/hooks` trust)
+* 💎 **[Gemini CLI & Google Antigravity](docs/INSTALL.md#-gemini-cli--google-antigravity)** (`gemini skills install` & `.gemini/config/plugins/`)
+* 🔄 **[Automatic Update-Check Hooks](docs/INSTALL.md#-automatic-update-check-hooks)** (Antigravity, Claude Code, & Codex)
 
 ---
 
@@ -154,6 +107,7 @@ zaymuel/skills/
 ├── .antigravity-plugin/                            <-- Google Antigravity plugin manifest
 ├── .claude-plugin/                                 <-- Claude Code plugin & marketplace manifests
 ├── .codex-plugin/                                  <-- OpenAI Codex plugin manifest
+├── .github/workflows/                              <-- Release version-sync GitHub Action
 ├── LICENSE                                         <-- MIT License
 ├── README.md                                       <-- Installation guide & skill catalog
 ├── package.json                                    <-- Package metadata & maintenance scripts
