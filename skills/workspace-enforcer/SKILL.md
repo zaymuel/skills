@@ -82,7 +82,7 @@ Activate this skill at the start of any software engineering, scripting, debuggi
 
 15. **ASK QUESTIONS IN CHAT (NEVER USE `ask_question` UI BUTTONS)**
     - Never call the `ask_question` tool or present interactive UI question buttons, as they interfere with the user's workflow.
-    - Write all clarifying or design questions directly in chat text using the `grilling` skill's numbered emoji format (`❓ **Q1**` / `➡️ <recommended answer>`, separated by horizontal rules, and worded so "yes" accepts your recommendation):
+    - Write all clarifying or design questions directly in chat text using the [`grilling`](../grilling/SKILL.md) skill's numbered emoji format (`❓ **Q1**` / `➡️ <recommended answer>`, separated by horizontal rules, and worded so "yes" accepts your recommendation):
 
         ```markdown
         ❓ **Q1** - **<question title>**: <question body, including numbered or lettered options when applicable>

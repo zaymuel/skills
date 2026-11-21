@@ -72,3 +72,9 @@ Only offer to create an ADR when all three are true:
 3. **The result of a real trade-off**: there were genuine alternatives and you picked one for specific reasons
 
 If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+
+
+## Integration with Other Skills
+
+- **Design Interviews (`/grill-me` / [`grilling`](../grilling/SKILL.md))**: When a domain boundary or naming conflict branches into multiple open decisions, use [`grilling`](../grilling/SKILL.md)'s chat-native `❓ **Q1**` / `➡️` rounds (never interactive UI question buttons) to resolve the frontier before updating `GLOSSARY.md` or writing an ADR.
+- **Glossary Purity ([`workspace-enforcer`](../workspace-enforcer/SKILL.md))**: Keep `GLOSSARY.md` strictly pure (definitions and cross-references only) per [`workspace-enforcer`](../workspace-enforcer/SKILL.md) Directive 10, placing architecture decisions in `docs/00_architecture_and_decisions.md` or `docs/adr/`.

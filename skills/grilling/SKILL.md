@@ -1,6 +1,6 @@
 ---
 name: grilling
-description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
+description: Grill the user relentlessly about a plan, decision, or idea. Use when the user invokes /grill-me, wants to stress-test their thinking, or uses any 'grill' trigger phrases.
 ---
 
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
@@ -28,3 +28,10 @@ Each round the user answers reshapes the tree: settled decisions push the fronti
 Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent with a fresh context window to find it; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
 
 The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding.
+
+
+## Integration with Other Skills
+
+- **Chat-Native Questions Only ([`workspace-enforcer`](../workspace-enforcer/SKILL.md))**: Present every `/grill-me` round directly in chat using the `❓ **Q1**` / `➡️` format above; never call interactive UI question buttons (`ask_question`), matching [`workspace-enforcer`](../workspace-enforcer/SKILL.md) Directive 15.
+- **Persist Settled Decisions ([`domain-modeling`](../domain-modeling/SKILL.md) & [`workspace-enforcer`](../workspace-enforcer/SKILL.md))**: Once the frontier is empty and the user confirms shared understanding, codify resolved domain terms in `GLOSSARY.md` and irreversible trade-offs in `docs/adr/` (via [`domain-modeling`](../domain-modeling/SKILL.md)) or `docs/00_architecture_and_decisions.md` (via [`workspace-enforcer`](../workspace-enforcer/SKILL.md) Directive 14) so decisions are not trapped in chat.
+- **Session Handoff ([`handoff`](../handoff/SKILL.md))**: If the completed design tree produces a large implementation plan intended for a fresh session, offer [`handoff`](../handoff/SKILL.md) to transfer the settled decisions cleanly.
