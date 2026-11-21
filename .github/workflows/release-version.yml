@@ -1,0 +1,84 @@
+name: Auto-Bump & Sync Version
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - "skills/**"
+      - "docs/**"
+      - "hooks/**"
+      - "hooks.json"
+      - "scripts/**"
+      - ".antigravity-plugin/**"
+      - ".claude-plugin/**"
+      - ".codex-plugin/**"
+      - "README.md"
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Explicit semver version to set (e.g. 2.0.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  bump-version:
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Bump or set version across manifests
+        id: bump
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/sync-plugin-version.mjs --set "${{ inputs.version }}"
+          elif [ "${{ github.event_name }}" = "release" ]; then
+            node scripts/sync-plugin-version.mjs --set "${{ github.event.release.tag_name }}"
+          else
+            BASE="${{ github.event.before }}"
+            if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+              BASE="HEAD~1"
+            fi
+
+            NEW_SKILLS=$(git diff --name-only --diff-filter=A "$BASE" HEAD -- 'skills/*/SKILL.md' || true)
+            if [ -n "$NEW_SKILLS" ]; then
+              echo "Detected new skill(s):"
+              echo "$NEW_SKILLS"
+              node scripts/sync-plugin-version.mjs --bump minor
+            else
+              node scripts/sync-plugin-version.mjs --bump patch
+            fi
+          fi
+
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "version=${NEW_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json .antigravity-plugin/plugin.json .claude-plugin/plugin.json .claude-plugin/marketplace.json .codex-plugin/plugin.json
+          if git diff --cached --quiet; then
+            echo "No version changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: bump version to v${{ steps.bump.outputs.version }} [skip ci]"
+          git push
