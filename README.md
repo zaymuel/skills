@@ -4,11 +4,22 @@ A general-use collection of modular AI agent skills (`SKILL.md`) that work acros
 
 ## 📑 Contents
 
-* [Included Skills](#-included-skills): Overview of all 7 skills under `skills/`.
+* [Top 3 Recommended Skills](#-top-3-recommended-skills): My personal recommendation if you're stranded on a desert island and only have space for 3 skills.
+* [Included Skills](#-included-skills): Overview of all 10 skills under `skills/`.
 * [Installation](#-installation): Setup commands for `npx skills` and all major coding agents.
 * [Common Questions](#-common-questions): Design discussions and links to each skill's full rationale in `docs/`.
 * [Repository Structure](#-repository-structure): Directory layout of the plugin manifest, skills, and reference guides.
 * [License & Attribution](#-license--attribution): MIT license details and community credits.
+
+---
+
+## ⭐ Top 3 Recommended Skills
+
+Pick my personal favourites:
+
+1. 🕵️ **[`anti-prompt-injection`](docs/anti-prompt-injection.md)** (**Security**): Shields your agent from hidden instructions/AI traps hidden inside documents and web pages.
+2. 🗂️ **[`workspace-enforcer`](docs/workspace-enforcer.md)** (**TODO Checklist & Project Architecture Organization**): Enforces TODO-First task tracking alongside clean root layout, and a structured `docs/00_architecture_and_decisions.md` blueprint so projects stay organized across long sessions and model switches.
+3. 🔄 **[`stumble-learning`](docs/stumble-learning.md)** (**Self-Debugging & Rule Distillation**): Turns bugs, failed commands, and user corrections into sanitized error logs and permanent rules so your agent learns from stumbles and stops repeating the same mistakes.
 
 ---
 
@@ -25,6 +36,9 @@ All skills live under [`skills/`](skills/) as self-contained folders with a `SKI
 | 🧹 **[`code-maintainability-formatter`](skills/code-maintainability-formatter/SKILL.md)** | Code & LaTeX Quality | Guides agents to write code and technical manuscripts that natively conform to formatter and linter standards from the first draft (including dedicated reference guides for [Python PEP 8 / `autopep8`](skills/code-maintainability-formatter/references/python.md) and [LaTeX `latexindent` / `chktex`](skills/code-maintainability-formatter/references/latex.md)), paired with high-signal "why" and "what" comments. | [📖 Docs](docs/code-maintainability-formatter.md) |
 | 🗺️ **[`map-crafting`](skills/map-crafting/SKILL.md)** | Geospatial & Cartographic Design | Cartographic standards for thematic, choropleth, facility-location, and bivariate maps: composable layer pipelines, metric projected CRS, domain filtering (`NaN` masking with neutral gray rendering), colorblind-safe palettes with high-contrast hydrography, distribution-aware binning, non-overlapping two-zone legends, and test output isolation. | [📖 Docs](docs/map-crafting.md) |
 | 📄 **[`paper-analysis-questions`](skills/paper-analysis-questions/SKILL.md)** | Research & Literature Review | Generates 6-9 progressive, high-rigor critical analysis questions from academic papers and technical reports across five analytical axes: metric limits, conceptual distinctions, methodological/statistical critique, causal mechanisms behind counterintuitive findings, and applied trade-offs. | [📖 Docs](docs/paper-analysis-questions.md) |
+| 🔥 **[`grilling`](skills/grilling/SKILL.md)** | Design Interviews (`/grill-me`) | Stress-tests plans and decisions through chat-native frontier rounds (`❓ **Q1**` / `➡️` recommendations), looking up codebase facts automatically and connecting settled decisions to `domain-modeling` and `handoff`. | [📖 Docs](docs/grilling.md) |
+| 🤝 **[`handoff`](skills/handoff/SKILL.md)** | Session Continuity | Compacts long conversations into kebab-case `handoff-<topic>.md` transfer briefs with redacted secrets, suggested skills, link-only chat summaries, and confirmation-gated cleanup once merged. | [📖 Docs](docs/handoff.md) |
+| 🧩 **[`domain-modeling`](skills/domain-modeling/SKILL.md)** | Ubiquitous Language & ADRs | Actively sharpens project terminology inline in `GLOSSARY.md` (free of implementation details) and records ADRs in `docs/adr/` only for hard-to-reverse, non-obvious trade-offs. | [📖 Docs](docs/domain-modeling.md) |
 
 > [!TIP]
 > ✅ **Standout Feature: TODO-First Task Tracking (`TODO.md`)**
@@ -97,6 +111,9 @@ Critical design questions probing each skill's core trade-off, with answers in [
 5. 🧹 **[`code-maintainability-formatter`](skills/code-maintainability-formatter/SKILL.md)**: *When writing Python with an aggressive `autopep8 -aa` mindset, why must ORM filter expressions intentionally violate `E711` (`x == None` with `# noqa: E711`), and why pair "why" comments with structural "what" comments on nested data?* -> [Read Answer](docs/code-maintainability-formatter.md#-common-questions--design-rationale)
 6. 🗺️ **[`map-crafting`](skills/map-crafting/SKILL.md)**: *Why does `map-crafting` mark ineligible spatial data as `NaN`/`None` instead of assuming `0`, and how does it prevent distorted bins and visual misinterpretation?* -> [Read Answer](docs/map-crafting.md#-common-questions--design-rationale)
 7. 📄 **[`paper-analysis-questions`](skills/paper-analysis-questions/SKILL.md)**: *Why do closed-form dichotomies and cross-paper tension prompts produce deeper technical critiques than open-ended section summaries?* -> [Read Answer](docs/paper-analysis-questions.md#-common-questions--design-rationale)
+8. 🔥 **[`grilling`](skills/grilling/SKILL.md)**: *Why ask the entire decision frontier in chat-native rounds with recommended answers instead of asking one question at a time or using UI popup buttons?* -> [Read Answer](docs/grilling.md#-common-questions--design-rationale)
+9.  🤝 **[`handoff`](skills/handoff/SKILL.md)**: *Why require kebab-case topic filenames and confirmation-gated cleanup instead of reusing one generic `handoff.md` or silently deleting consumed handoffs?* -> [Read Answer](docs/handoff.md#-common-questions--design-rationale)
+10. 🧩 **[`domain-modeling`](skills/domain-modeling/SKILL.md)**: *Why keep `GLOSSARY.md` completely devoid of implementation details and gate ADRs behind three strict criteria?* -> [Read Answer](docs/domain-modeling.md#-common-questions--design-rationale)
 
 ---
 
