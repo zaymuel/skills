@@ -44,3 +44,9 @@ After auditing the source material for metrics, sample sizes, modeling assumptio
 
 1. **Eliminating Abstract Paraphrasing**: Open-ended prompts ("Summarize the methodology in Section 3" or "What are the limitations?") allow a reader or language model to pass by paraphrasing the authors' own abstract and limitation statements without verifying whether the empirical evidence actually supports the claim.
 2. **Forcing Evidence-Backed Nuance via Dichotomies**: Framing a question as a sharp methodological tension or apparent dichotomy ("Does metric $A$ suffice to establish claim $B$ when sample condition $C$ holds, or does it confound $X$ with $Y$?") compels the analyst to reject both naive extremes, inspect the underlying equations and experimental constraints, and defend a nuanced position using concrete numbers from the text.
+
+
+### Why does Snyk show an informational `W011` warning on this skill?
+
+1. **Expected on Any Paper-Reading Skill**: Snyk's `W011` (Third-Party Content Exposure) fires automatically on any skill that reads outsider-authored text such as uploaded or pasted academic papers.
+2. **Low-Risk User-Selected Input (`0.10`)**: Snyk marks this as an informational `Warn` rather than a `Fail`, noting that external text enters only after the user explicitly selects and provides the paper. Pair with [`anti-prompt-injection`](anti-prompt-injection.md) when inspecting untrusted PDFs.

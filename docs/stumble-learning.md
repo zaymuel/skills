@@ -5,68 +5,57 @@
 | 🏠 | [Back to README](../README.md) |
 | 📄 | [Skill Specification (`SKILL.md`)](../skills/stumble-learning/SKILL.md) |
 
-A project-independent, two-layer error-to-rule distillation loop that turns command failures, unexpected exceptions, and user corrections into permanent preventive policies.
+Turns mistakes, failed commands, and user corrections into permanent, user-approved project rules without cluttering your global system prompt.
 
 ---
 
 ## 🎯 When It Activates
 
-This skill activates automatically before retrying or proceeding whenever any of the following occurs:
+This skill stays closed during normal work and opens only when something goes wrong:
 
-* ❌ A shell command, build step, script, or test returns a non-zero exit code or raises an unexpected exception.
-* 🔍 The agent references a non-existent symbol, config constant, dependency, or wrong schema from assumption instead of inspection.
-* ⚠️ A test mutates or overwrites production files or result directories.
-* 🗣️ The user corrects a recurring mistake or points out a boundary violation (documentation hygiene, path assumptions, tool separation, etc.).
+* ❌ A terminal command, build step, script, or test fails.
+* 🔍 The agent guesses a file path, symbol, dependency, or data schema wrong.
+* ⚠️ A test accidentally writes over production files.
+* 🗣️ You correct a repeated mistake or point out a broken rule.
 
 ---
 
-## 🏗️ Two-Layer Architecture & Execution Loop
+## 💡 How It Works (Plain English)
 
-Instead of bloating global system prompts with project-specific fixes, `stumble-learning` splits responsibility into two layers:
+Instead of loading every project's bug history into every chat, `stumble-learning` uses two simple layers:
 
-1. **Layer 1 (Always-On Trigger)**: A lightweight (~4-line) directive in your global agent instructions (`CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`) that watches for failures and corrections with minimal token overhead.
-2. **Layer 2 (On-Demand Portable Skill)**: Loaded via progressive disclosure only when an incident occurs, handling ledger bootstrapping, root-cause taxonomy, verification, and rule distillation.
+1. **Layer 1 (Tiny Always-On Watchdog)**: A short 4-line note in your global instructions (`CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`) that tells the agent to open `stumble-learning` when something breaks.
+2. **Layer 2 (The On-Demand Manual)**: The skill stays closed until an error happens. Once opened, it asks before creating an error log (`errors.md`), writes a short sanitized note of what failed and where, verifies the fix actually works, and asks your approval before turning repeat mistakes into a permanent rule (`AGENTS.md`).
 
 ```mermaid
 flowchart LR
-    A["Command Error / Exception /<br/>User Correction"] --> B["Layer 1: Always-On Trigger<br/>(CLAUDE.md / AGENTS.md / GEMINI.md)"]
-    B -->|"Activates Skill On-Demand"| C["Layer 2: Portable Global Skill<br/>(stumble-learning)"]
-    C --> D{"Does error ledger<br/>exist in repo?"}
-    D -->|"No"| E["Step 0: Auto-Bootstrap<br/>Create ledger + AGENTS.md"]
-    D -->|"Yes"| F["Step 1: Log on Failure (ERR-XXX)<br/>& Apply Remediation"]
+    A["Error / Failed Test /<br/>User Correction"] --> B["Layer 1: Always-On Trigger<br/>(CLAUDE.md / AGENTS.md / GEMINI.md)"]
+    B -->|"Opens Skill On-Demand"| C["Layer 2: Stumble Learning<br/>(stumble-learning)"]
+    C --> D{"Does errors.md<br/>exist in repo?"}
+    D -->|"No"| E["Ask User to Create<br/>errors.md + AGENTS.md"]
+    D -->|"Yes"| F["1. Log Short Summary & Location<br/>(No Raw Logs) + Fix"]
     E --> F
-    F --> V{"Verification Gate:<br/>Did fix resolve it?"}
+    F --> V{"Did the fix<br/>actually work?"}
     V -->|"No"| F
-    V -->|"Yes"| G["Step 2: Cross-Incident<br/>Pattern Analysis"]
-    G --> H{"Local or Universal Rule?"}
-    H -->|"Repo-Specific"| I["Step 3a: Distill rule in AGENTS.md<br/>& mark ERR-XXX Distilled"]
-    H -->|"Universal Pattern"| J["Step 3b: Propose promotion to<br/>global rules or zaymuel/skills"]
+    V -->|"Yes"| G["2. Check for Repeat Pattern<br/>(>= 2 times or high severity)"]
+    G --> H{"Project-Only or<br/>Universal Rule?"}
+    H -->|"Project-Only"| I["3a. Propose rule & get approval<br/>to update AGENTS.md"]
+    H -->|"Universal"| J["3b. Propose rule & get approval<br/>to update global skills/rules"]
 ```
 
 ---
 
-## 📚 Complementary Non-Overlapping Files
+## 🧪 Concrete Example (From Stumble to Rule)
 
-Every repository maintains two clean, separated files so raw debugging logs never pollute active operational rules:
-
-| File | Functional Role | What Belongs Here | What Does NOT Belong Here |
-| :--- | :--- | :--- | :--- |
-| **`docs/agents/errors.md`** *(or local `.agents/errors.md`)* | **Incident Ledger & Empirical Memory** (*why rules exist*) | Chronological `ERR-XXX` entries with exact commands, error messages, root causes, fixes, and structural categories (`[TOOLCHAIN]`, `[PATH-ENV]`, `[MISSING-DEP]`, `[API-CONTRACT]`, `[TEST-ISOLATION]`, `[DOC-BOUNDARY]`, `[SYMBOL-CHECK]`, `[DATA-SCHEMA]`). | Prescriptive workflow mandates mixed into raw log tables without synthesis. |
-| **`AGENTS.md`** | **Enforced Operational Contract** (*what the agent must obey*) | Concise, imperative, testable preventive rules promoted only after a fix passes the **Verification Gate**. | Raw stack traces, historical command logs, or unverified hypotheses. |
-
----
-
-## ✅ Promotion Criteria (Verification Gate)
-
-* 🔁 **Recurrence Threshold**: Two or more incidents sharing the same abstract failure mode or structural category trigger distillation into a permanent rule.
-* 🚨 **High-Severity / Explicit Correction**: Critical silent failures (such as silent data corruption or destructive overwrites) or explicit user corrections promote immediately once the remediation is verified.
-* 🧪 **Never Distill Unverified Hypotheses**: A rule is only promoted to `AGENTS.md` or global skills after the retried command, build, or test succeeds without regression.
+1. **The stumble**: The agent chains a PowerShell command and a Git command on one line (`Get-ChildItem ...; git status`), and the user blocks it.
+2. **Logged in `errors.md` (`ERR-001`)**: Records the exact command intent, root cause (`[TOOLCHAIN]` mixing PowerShell and Git with `;`), and the verified fix (running two separate parallel tool calls).
+3. **Promoted to `AGENTS.md` (after user approval)**: Distills into one clean rule: *"Never combine PowerShell cmdlets and `git` commands on the same command line; issue separate parallel tool calls instead."*
 
 ---
 
 ## ❓ Common Questions & Design Rationale
 
-### Why split self-improvement into an empirical error ledger (`errors.md`) and a separate operational contract (`AGENTS.md`) gated by a verification check, rather than appending every bug fix directly to the global system prompt?
+### Why separate `errors.md` from `AGENTS.md` behind a verification gate instead of appending fixes directly to the global prompt?
 
-1. **Preventing System-Prompt Drift and Unverified Rules**: During multi-step debugging, an agent's first hypothesis about a failure is often incomplete or wrong. Immediately writing an unverified fix into `AGENTS.md` or global instructions locks in brittle or contradictory rules. The **Verification Gate** ensures only remediations that demonstrably pass tests or recurrence checks ($\ge 2$ incidents) graduate into enforced policy.
-2. **Separating Empirical Memory (*Why*) from Imperative Contract (*What*)**: Raw stack traces, command logs, and one-off environment quirks provide essential historical context in `errors.md`, but they waste tokens and dilute attention if loaded into every turn's operational contract. Keeping `AGENTS.md` restricted to concise, imperative rules maximizes agent compliance while preserving the full audit trail in `errors.md`.
+1. **No Unverified Rules**: First debugging guesses are often wrong; requiring a passing fix and user approval keeps brittle or contradictory rules out of `AGENTS.md`.
+2. **Low Token Noise & Safer Logs**: `errors.md` keeps sanitized incident history out of every prompt turn (and avoids pasting untrusted raw logs), leaving `AGENTS.md` strictly for short, enforceable rules.

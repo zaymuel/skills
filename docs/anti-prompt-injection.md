@@ -55,3 +55,10 @@ Adapted and inverted into a defensive guardrail from [yaklang/hack-skills](https
 1. **Disambiguating Benign Encoding Artifacts from Attacks**: LaTeX-compiled math PDFs and OCR documents frequently produce garbled character sequences in the raw text layer. Comparing the text layer against the visual page rendering prevents false-positive stripping of legitimate mathematical expressions or accented text.
 2. **Surfacing Academic and Evaluation Traps**: Course assignments and benchmarks often embed zero-point or white-on-white watermark phrases ("mention X in your answer") to detect automated use. Silently stripping those strings leaves the user unaware that the document contained an integrity trap.
 3. **Preserving User Agency Over Untrusted Payloads**: Quoting the exact hidden instruction or secondary download URL inside an inert Markdown code block neutralizes execution while allowing the human operator to inspect the payload and decide whether to abort, sanitize, or proceed.
+
+
+### Why does Snyk show an informational `W011` warning on this skill?
+
+1. **Expected on Any Document/URL Scanner**: Snyk's `W011` (Third-Party Content Exposure) fires automatically on any skill that reads external URLs or user-uploaded documents. Because scanning untrusted inputs for hidden payloads is this skill's core purpose, removing external-content inspection would defeat it.
+2. **Informational `Warn`, Not a `Fail`**: Snyk scores this at its lowest risk tier (`0.10`), explicitly confirming it only runs on files or URLs the user supplies and cannot be triggered passively.
+3. **Mitigated by Design**: The skill enforces strict data-vs-instruction separation, blocks unverified downloads and SSRF targets, and halts to display suspicious payloads inside inert code blocks.

@@ -19,4 +19,4 @@ If the user passed arguments, treat them as a description of what the next sessi
 
 Once the handoff file is saved, never echo, quote, or reprint its contents or sections in the chat response; provide exclusively a clickable Markdown link to the created file (with line numbers only if an existing file was edited) and a brief one-line summary.
 
-**Handoff Lifecycle & Post-Integration Deletion**: Handoff documents are ephemeral session-transfer artifacts. Whenever you apply a handoff and finish merging its tasks, findings, or architecture into the permanent codebase or canonical documentation, immediately delete the consumed `handoff-*.md` file so stale handoffs do not clutter the repository.
+**Handoff Lifecycle & Cleanup**: Handoff documents are temporary session-transfer artifacts. Once you finish applying a handoff and integrating its tasks, findings, or architecture into the codebase or canonical documentation, let the user know the handoff has been merged and ask whether they would like to remove the consumed `handoff-*.md` file, unless workspace rules allow for automatic deletion of temporary artifacts.

@@ -23,7 +23,7 @@ All temporary scripts, probes, and scratch explorations are strictly quarantined
 
 * 📁 **Clean Root Layout**: Reserves the project root strictly for permanent repository files (`README.md`, `requirements.txt`, `pyproject.toml`, tracked configs), while placing production modules in `scripts/` (or `src/`) and formal test suites in `tests/`.
 * 🔢 **Sequential Single-File Drafts**: Exploratory scripts follow sequential naming (`01_<topic>.py`, `02_<topic>.py`) and are edited in place across iterations without spawning duplicate variants (`01a_`, `_v2`, `_backup`), preserving clean diffs and saving tokens.
-* 🧹 **Ephemeral Handoff Cleanup**: Handoff transfer files (`handoff-*.md`) are deleted immediately once applied and merged into canonical documentation or code.
+* 🧹 **Ephemeral Handoff Cleanup**: Treats handoff transfer files (`handoff-*.md`) as temporary artifacts and asks the user for confirmation before removing them once merged into canonical documentation or code.
 * 🚧 **Workspace Confinement**: Agents write, compile, and execute code exclusively inside the active project working directory, never in `/tmp`, `%TEMP%`, or hidden agent state folders.
 
 ### 2. Privacy, Anonymization & Git Safety
