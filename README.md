@@ -44,10 +44,6 @@ All skills live under [`skills/`](skills/) as self-contained folders with a `SKI
 | 🧪 **[`tdd`](skills/tdd/SKILL.md)** | Test-Driven Development | Drives test-first development in vertical red-to-green slices at pre-agreed public seams with Cartesian coverage for simultaneous options, plus dedicated [good/bad test examples](skills/tdd/tests.md) and [mocking guidelines](skills/tdd/mocking.md). | [📖 Docs](docs/tdd.md) |
 | 🧩 **[`domain-modeling`](skills/domain-modeling/SKILL.md)** | Ubiquitous Language & ADRs | Actively sharpens project terminology inline in `GLOSSARY.md` (free of implementation details) and records ADRs in `docs/adr/` only for hard-to-reverse, non-obvious trade-offs. | [📖 Docs](docs/domain-modeling.md) |
 
-> [!TIP]
-> ✅ **Standout Feature: TODO-First Task Tracking (`TODO.md`)**
-> One of the highest-impact workflows in [`workspace-enforcer`](docs/workspace-enforcer.md): the agent logs every request as `- [ ]` items in `TODO.md` before touching code and checks it off `[X]` when done, keeping a live changelog that prevents dropped tasks across long chats or model switches.
-
 ---
 
 ## 📦 Installation
@@ -65,7 +61,7 @@ npx skills@latest add zaymuel/skills
 🎯 To pick only specific skills to install, browse [skills.sh/zaymuel/skills](https://www.skills.sh/zaymuel/skills).
 
 
-> [!NOTE]
+> [!TIP]
 > If `npx skills` doesn't work in your environment, try the direct agent prompt, copy-and-paste selected skills, or the per-agent setup guide on the [installation guide](docs/INSTALL.md). It also covers the `SessionStart` update-check hook setup (including Codex `/hooks` approval).
 
 ---
