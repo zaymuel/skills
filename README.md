@@ -66,7 +66,7 @@ npx skills@latest add zaymuel/skills
 
 
 > [!NOTE]
-> If `npx skills` doesn't work in your environment, try the [direct agent prompt](docs/INSTALL.md#-direct-prompt-ask-your-agent-to-install-the-whole-suite), [copy-and-paste selected skills](docs/INSTALL.md#-installing-selected-skills-only-copy--paste), or the [per-agent setup guide](docs/INSTALL.md). The guide also covers native plugin marketplaces and `SessionStart` update-check hook setup (including Codex `/hooks` approval).
+> If `npx skills` doesn't work in your environment, try the direct agent prompt, copy-and-paste selected skills, or the per-agent setup guide on the [installation guide](docs/INSTALL.md). It also covers the `SessionStart` update-check hook setup (including Codex `/hooks` approval).
 
 ---
 
