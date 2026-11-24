@@ -48,6 +48,7 @@ All temporary scripts, probes, and scratch explorations are strictly quarantined
 * ❓ **Chat-Native Questions**: Asks clarifying or design questions directly in chat using numbered emoji prompts (`❓ **Q1**` / `➡️ <recommendation>`) instead of interactive UI question buttons.
 * 📊 **Mermaid Diagrams for Complexity**: Uses native Mermaid fenced blocks (`flowchart`, `sequenceDiagram`, `stateDiagram-v2`, `erDiagram`, etc.) whenever workflows or architectures outgrow raw text or plain tables.
 * 🔄 **Automatic Error-to-Rule Trigger**: Routes command failures, unexpected exceptions, and user corrections directly to [`stumble-learning`](stumble-learning.md).
+* 🧪 **Test-Driven Verification (`tdd`)**: Routes test creation, test-first feature work, and bugfix regression tests to [`tdd`](tdd.md) (confirming public seams, vertical red-to-green slices, and Cartesian coverage for simultaneous options).
 
 ---
 

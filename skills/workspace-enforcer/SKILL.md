@@ -89,3 +89,7 @@ Activate this skill at the start of any software engineering, scripting, debuggi
 
         ➡️ <your recommended answer>
         ```
+
+
+16. **TEST-DRIVEN VERIFICATION & CARTESIAN COVERAGE ([`tdd`](../tdd/SKILL.md) skill)**
+    - Whenever creating or modifying formal tests (`tests/`), building features test-first, or writing regression tests for bugfixes, load and follow [`tdd`](../tdd/SKILL.md): confirm public seams before writing tests, work in vertical red-to-green slices against public interfaces, and parameterize over Cartesian combinations when a seam accepts multiple simultaneous options.

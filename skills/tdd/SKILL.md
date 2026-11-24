@@ -13,6 +13,8 @@ When exploring the codebase, read `GLOSSARY.md` (if it exists) so test names and
 
 Tests verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't. A good test reads like a specification: "user can checkout with valid cart" tells you exactly what capability exists, and it survives refactors because it doesn't care about internal structure.
 
+- **Cartesian / Combinatorial Coverage for Co-occurring Options**: Whenever a seam accepts multiple flags, modes, or alternative possibilities that can happen simultaneously, parameterize tests over the full combinatorial suite of those options (the full Cartesian product, or the upper/lower triangle when option order is symmetric to avoid duplicate permutations) rather than testing only isolated flags or pairwise-only subsets.
+
 See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking guidelines.
 
 ## Seams: where tests go

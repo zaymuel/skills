@@ -38,6 +38,7 @@ All skills live under [`skills/`](skills/) as self-contained folders with a `SKI
 | 📄 **[`paper-analysis-questions`](skills/paper-analysis-questions/SKILL.md)** | Research & Literature Review | Generates 6-9 progressive, high-rigor critical analysis questions from academic papers and technical reports across five analytical axes: metric limits, conceptual distinctions, methodological/statistical critique, causal mechanisms behind counterintuitive findings, and applied trade-offs. | [📖 Docs](docs/paper-analysis-questions.md) |
 | 🔥 **[`grilling`](skills/grilling/SKILL.md)** | Design Interviews (`/grill-me`) | Stress-tests plans and decisions through chat-native frontier rounds (`❓ **Q1**` / `➡️` recommendations), looking up codebase facts automatically and connecting settled decisions to `domain-modeling` and `handoff`. | [📖 Docs](docs/grilling.md) |
 | 🤝 **[`handoff`](skills/handoff/SKILL.md)** | Session Continuity | Compacts long conversations into kebab-case `handoff-<topic>.md` transfer briefs with redacted secrets, suggested skills, link-only chat summaries, and confirmation-gated cleanup once merged. | [📖 Docs](docs/handoff.md) |
+| 🧪 **[`tdd`](skills/tdd/SKILL.md)** | Test-Driven Development | Drives test-first development in vertical red-to-green slices at pre-agreed public seams with Cartesian coverage for simultaneous options, plus dedicated [good/bad test examples](skills/tdd/tests.md) and [mocking guidelines](skills/tdd/mocking.md). | [📖 Docs](docs/tdd.md) |
 | 🧩 **[`domain-modeling`](skills/domain-modeling/SKILL.md)** | Ubiquitous Language & ADRs | Actively sharpens project terminology inline in `GLOSSARY.md` (free of implementation details) and records ADRs in `docs/adr/` only for hard-to-reverse, non-obvious trade-offs. | [📖 Docs](docs/domain-modeling.md) |
 
 > [!TIP]
@@ -114,6 +115,7 @@ Critical design questions probing each skill's core trade-off, with answers in [
 8. 🔥 **[`grilling`](skills/grilling/SKILL.md)**: *Why ask the entire decision frontier in chat-native rounds with recommended answers instead of asking one question at a time or using UI popup buttons?* -> [Read Answer](docs/grilling.md#-common-questions--design-rationale)
 9.  🤝 **[`handoff`](skills/handoff/SKILL.md)**: *Why require kebab-case topic filenames and confirmation-gated cleanup instead of reusing one generic `handoff.md` or silently deleting consumed handoffs?* -> [Read Answer](docs/handoff.md#-common-questions--design-rationale)
 10. 🧩 **[`domain-modeling`](skills/domain-modeling/SKILL.md)**: *Why keep `GLOSSARY.md` completely devoid of implementation details and gate ADRs behind three strict criteria?* -> [Read Answer](docs/domain-modeling.md#-common-questions--design-rationale)
+11. 🧪 **[`tdd`](skills/tdd/SKILL.md)**: *Why work in vertical slices at pre-agreed public seams instead of writing all tests first (horizontal slicing) against internal helpers?* -> [Read Answer](docs/tdd.md#-common-questions--design-rationale)
 
 ---
 
