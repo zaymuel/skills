@@ -16,6 +16,7 @@ Activate this skill at the start of any software engineering, scripting, debuggi
     - Place production modules in `scripts/` and formal test suites in `tests/`.
     - Quarantine all temporary scripts, scratch probes, debugging snippets, and ad-hoc runners inside `python-drafts/` (or `<language>-drafts/`, creating the directory if absent). Never place temporary files in the project root.
     - **Sequential Draft Naming (One File Per Topic)**: Name exploratory scripts sequentially in `python-drafts/` (`01_<topic>.py`, `02_<topic>.py`), inspecting the directory first to determine the next integer prefix. Edit each topic's file in place across iterations (never spawn duplicate variants such as `01a_`, `_v2`, or `_backup`) to preserve clean diffs and save tokens, incrementing the prefix only for a new topic.
+    - **No Uncommitted / Draft References in Canonical Docs & ADRs**: Never reference untracked, gitignored, or uncommitted files (such as `python-drafts/`, scratch scripts, or local-only artifacts) inside ADRs, `README.md`, `GLOSSARY.md`, methodology documents, or other official tracked documentation; references to uncommitted drafts are permitted exclusively inside temporary session handoff files (`handoff-*.md`).
     - **Ephemeral Handoff Cleanup**: Treat handoff files (`handoff-*.md`) as temporary transfer artifacts; once a handoff is applied and merged into canonical documentation or code, notify the user and ask for explicit confirmation before removing the consumed handoff file.
 
 2. **WORKSPACE CONFINEMENT & PATH PORTABILITY**
