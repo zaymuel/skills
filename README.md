@@ -7,12 +7,12 @@ A general-use collection of modular AI agent skills (`SKILL.md`) that work acros
 
 ## 📑 Contents
 
-* [Top 3 Recommended Skills](#-top-3-recommended-skills): My personal recommendation if you're stranded on a desert island and only have space for 3 skills.
-* [Included Skills](#-included-skills): Overview of all 11 skills under `skills/`.
-* [Installation](#-installation): Setup commands for `npx skills` and all major coding agents.
-* [Common Questions](#-common-questions): Design discussions and links to each skill's full rationale in `docs/`.
-* [Repository Structure](#-repository-structure): Directory layout of the plugin manifest, skills, and reference guides.
-* [License & Attribution](#-license--attribution): MIT license details and community credits.
+* ⭐ [Top 3 Recommended Skills](#-top-3-recommended-skills): My personal recommendation if you're stranded on a desert island and only have space for 3 skills.
+* 🧠 [Included Skills](#-included-skills): Overview of all 11 skills under `skills/`.
+* 📦 [Installation](#-installation): Setup commands for `npx skills` and all major coding agents.
+* ❓ [Common Questions](#-common-questions): Design discussions and links to each skill's full rationale in `docs/`.
+* 📁 [Repository Structure](#-repository-structure): Directory layout of the plugin manifest, skills, and reference guides.
+* 📄 [License & Attribution](#-license--attribution): MIT license details and community credits.
 
 ---
 
@@ -52,53 +52,21 @@ All skills live under [`skills/`](skills/) as self-contained folders with a `SKI
 
 ## 📦 Installation
 
-You can install the entire skill suite or pick individual skill folders for your preferred AI coding agent.
-
-### 💬 Option 0: Ask Your Agent to Install the Whole of It (Easiest)
-
-Paste a prompt with this repository's link directly into your AI coding agent:
-
-```text
-Install the skills from https://github.com/zaymuel/skills into my skills directory.
-```
-
-If it succeeds, jump straight into [Common Questions](#-common-questions) to explore the design trade-offs behind each skill :)
-
-> [!WARNING]
-> If your agent cannot install it automatically, use the copy-and-paste steps below, `npx skills`, or the [agent-specific setup guide](docs/INSTALL.md).
-
-### 📋 Installing Selected Skills Only (Copy & Paste)
-
-Want only specific modules, or using an agent that cannot fetch GitHub URLs directly? Install any individual skill in 3 steps:
-
-1. **Access the skill**: Open the skill's `SKILL.md` link from the [Included Skills](#-included-skills) table above (for example, [`stumble-learning/SKILL.md`](skills/stumble-learning/SKILL.md)).
-2. **Copy the raw file**: Click GitHub's **Copy raw file** button (or copy the full `SKILL.md` text, including the text between `---`).
-3. **Paste into your agent**: Paste the copied content into your agent chat:
-
-```text
-Please save this as a skill:
-
-<paste SKILL.md content here>
-```
-
-*(If a skill includes a `references/` folder, such as [`code-maintainability-formatter`](skills/code-maintainability-formatter/SKILL.md), repeat the same steps for any reference files you need.)*
-
 ### ⚡ Universal Installer (`npx skills`)
 
-Copy editable skill folders directly into your global or project configuration for any supported agent:
+Install all editable skills directly into your project:
 
 ```bash
 npx skills@latest add zaymuel/skills
 ```
 
-### 🛠️ Agent-Specific & Plugin Installation
+✅ If it succeeds, jump straight into [Common Questions](#-common-questions) to explore the design trade-offs behind each skill :)
 
-For native plugin marketplaces, manual directory paths, and `SessionStart` update-check hook setup (including Codex `/hooks` approval), see **[`docs/INSTALL.md`](docs/INSTALL.md)**:
+🎯 To pick only specific skills to install, browse [skills.sh/zaymuel/skills](https://www.skills.sh/zaymuel/skills).
 
-* 🤖 **[Claude Code](docs/INSTALL.md#-claude-code)** (Plugin Marketplace & `~/.claude/skills/`)
-* 🧠 **[OpenAI Codex](docs/INSTALL.md#-openai-codex-codex-cli)** (Plugin Marketplace, `~/.codex/skills/`, & `/hooks` trust)
-* 💎 **[Gemini CLI & Google Antigravity](docs/INSTALL.md#-gemini-cli--google-antigravity)** (`gemini skills install` & `.gemini/config/plugins/`)
-* 🔄 **[Automatic Update-Check Hooks](docs/INSTALL.md#-automatic-update-check-hooks)** (Antigravity, Claude Code, & Codex)
+
+> [!NOTE]
+> If `npx skills` doesn't work in your environment, try the [direct agent prompt](docs/INSTALL.md#-direct-prompt-ask-your-agent-to-install-the-whole-suite), [copy-and-paste selected skills](docs/INSTALL.md#-installing-selected-skills-only-copy--paste), or the [per-agent setup guide](docs/INSTALL.md). The guide also covers native plugin marketplaces and `SessionStart` update-check hook setup (including Codex `/hooks` approval).
 
 ---
 
