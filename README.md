@@ -5,7 +5,7 @@ A general-use collection of modular AI agent skills (`SKILL.md`) that work acros
 ## 📑 Contents
 
 * [Top 3 Recommended Skills](#-top-3-recommended-skills): My personal recommendation if you're stranded on a desert island and only have space for 3 skills.
-* [Included Skills](#-included-skills): Overview of all 10 skills under `skills/`.
+* [Included Skills](#-included-skills): Overview of all 11 skills under `skills/`.
 * [Installation](#-installation): Setup commands for `npx skills` and all major coding agents.
 * [Common Questions](#-common-questions): Design discussions and links to each skill's full rationale in `docs/`.
 * [Repository Structure](#-repository-structure): Directory layout of the plugin manifest, skills, and reference guides.
@@ -152,5 +152,6 @@ This project is licensed under the [MIT License](LICENSE).
     * [`domain-modeling`](skills/domain-modeling/CREDITS.md)
     * [`grilling`](skills/grilling/CREDITS.md)
     * [`handoff`](skills/handoff/CREDITS.md)
+    * [`tdd`](skills/tdd/CREDITS.md)
   * **Yaklang** ([`yaklang/hack-skills`](https://github.com/yaklang/hack-skills), MIT License):
     * [`anti-prompt-injection`](skills/anti-prompt-injection/CREDITS.md) (adapted and inverted from [`llm-prompt-injection`](https://www.skills.sh/yaklang/hack-skills/llm-prompt-injection))
