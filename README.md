@@ -7,22 +7,24 @@ A general-use collection of modular AI agent skills (`SKILL.md`) that work acros
 
 ## 📑 Contents
 
-* ⭐ [Top 3 Recommended Skills](#-top-3-recommended-skills): My personal recommendation if you're stranded on a desert island and only have space for 3 skills.
-* 🧠 [Included Skills](#-included-skills): Overview of all 11 skills under `skills/`.
-* 📦 [Installation](#-installation): Setup commands for `npx skills` and all major coding agents.
-* ❓ [Common Questions](#-common-questions): Design discussions and links to each skill's full rationale in `docs/`.
-* 📁 [Repository Structure](#-repository-structure): Directory layout of the plugin manifest, skills, and reference guides.
-* 📄 [License & Attribution](#-license--attribution): MIT license details and community credits.
+1. ⭐ [Top 3 Recommended Skills](#-top-3-recommended-skills): My personal recommendation if you're stranded on a desert island and only have space for 3 skills.
+2. 🧠 [Included Skills](#-included-skills): Overview of all 11 skills under `skills/`.
+3. 📦 [Installation](#-installation): Setup commands for `npx skills` and all major coding agents.
+4. ❓ [Common Questions](#-common-questions): Design discussions and links to each skill's full rationale in `docs/`.
+5. 📁 [Repository Structure](#-repository-structure): Directory layout of the plugin manifest, skills, and reference guides.
+6. 📄 [License & Attribution](#-license--attribution): MIT license details and community credits.
 
 ---
 
 ## ⭐ Top 3 Recommended Skills
 
-Pick my personal favourites:
+Try my personal favourites:
 
-1. 🕵️ **[`anti-prompt-injection`](docs/anti-prompt-injection.md)** (**Security**): Shields your agent from hidden instructions/AI traps hidden inside documents and web pages.
-2. 🗂️ **[`workspace-enforcer`](docs/workspace-enforcer.md)** (**TODO Checklist & Project Architecture Organization**): Enforces TODO-First task tracking alongside clean root layout, and a structured `docs/00_architecture_and_decisions.md` blueprint so projects stay organized across long sessions and model switches.
-3. 🔄 **[`stumble-learning`](docs/stumble-learning.md)** (**Self-Debugging & Rule Distillation**): Turns bugs, failed commands, and user corrections into sanitized error logs and permanent rules so your agent learns from stumbles and stops repeating the same mistakes.
+🕵️ **[`anti-prompt-injection`](docs/anti-prompt-injection.md)** (**Security**): Shields your agent from hidden instructions/AI traps hidden inside documents and web pages.
+
+🗂️ **[`workspace-enforcer`](docs/workspace-enforcer.md)** (**TODO Checklist & Project Architecture Organization**): Enforces TODO-First task tracking alongside clean root layout, and a structured `docs/00_architecture_and_decisions.md` blueprint so projects stay organized across long sessions and model switches.
+
+🔄 **[`stumble-learning`](docs/stumble-learning.md)** (**Self-Debugging & Rule Distillation**): Turns bugs, failed commands, and user corrections into sanitized error logs and permanent rules so your agent learns from stumbles and stops repeating the same mistakes.
 
 ---
 
