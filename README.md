@@ -1,5 +1,8 @@
 # 🛠️ zaymuel/skills
 
+[![skills.sh](https://skills.sh/b/zaymuel/skills)](https://skills.sh/zaymuel/skills)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A general-use collection of modular AI agent skills (`SKILL.md`) that work across **Claude Code**, **OpenAI Codex**, **Gemini CLI**, **Google Antigravity**, **Cursor**, and any compatible coding agent. 🚀
 
 ## 📑 Contents
@@ -113,7 +116,7 @@ Critical design questions probing each skill's core trade-off, with answers in [
 6. 🗺️ **[`map-crafting`](skills/map-crafting/SKILL.md)**: *Why does `map-crafting` mark ineligible spatial data as `NaN`/`None` instead of assuming `0`, and how does it prevent distorted bins and visual misinterpretation?* -> [Read Answer](docs/map-crafting.md#-common-questions--design-rationale)
 7. 📄 **[`paper-analysis-questions`](skills/paper-analysis-questions/SKILL.md)**: *Why do closed-form dichotomies and cross-paper tension prompts produce deeper technical critiques than open-ended section summaries?* -> [Read Answer](docs/paper-analysis-questions.md#-common-questions--design-rationale)
 8. 🔥 **[`grilling`](skills/grilling/SKILL.md)**: *Why ask the entire decision frontier in chat-native rounds with recommended answers instead of asking one question at a time or using UI popup buttons?* -> [Read Answer](docs/grilling.md#-common-questions--design-rationale)
-9.  🤝 **[`handoff`](skills/handoff/SKILL.md)**: *Why require kebab-case topic filenames and confirmation-gated cleanup instead of reusing one generic `handoff.md` or silently deleting consumed handoffs?* -> [Read Answer](docs/handoff.md#-common-questions--design-rationale)
+9. 🤝 **[`handoff`](skills/handoff/SKILL.md)**: *Why require kebab-case topic filenames and confirmation-gated cleanup instead of reusing one generic `handoff.md` or silently deleting consumed handoffs?* -> [Read Answer](docs/handoff.md#-common-questions--design-rationale)
 10. 🧩 **[`domain-modeling`](skills/domain-modeling/SKILL.md)**: *Why keep `GLOSSARY.md` completely devoid of implementation details and gate ADRs behind three strict criteria?* -> [Read Answer](docs/domain-modeling.md#-common-questions--design-rationale)
 11. 🧪 **[`tdd`](skills/tdd/SKILL.md)**: *Why work in vertical slices at pre-agreed public seams instead of writing all tests first (horizontal slicing) against internal helpers?* -> [Read Answer](docs/tdd.md#-common-questions--design-rationale)
 
