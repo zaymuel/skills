@@ -1,4 +1,4 @@
-# 🕵️ Anti-Prompt Injection (`anti-prompt-injection`)
+# 🕵️ Anti-Prompt Injection / APIJ (`anti-prompt-injection`)
 
 | | Quick Links |
 | :---: | :--- |
@@ -6,7 +6,7 @@
 | 📄 | [Skill Specification (`SKILL.md`)](../skills/anti-prompt-injection/SKILL.md) |
 | 🙏 | [Credits & Attribution (`CREDITS.md`)](../skills/anti-prompt-injection/CREDITS.md) |
 
-A defensive security guardrail that inspects untrusted inputs (PDFs, documents, notebooks, web pages, and remote URLs) for hidden text, indirect prompt injection payloads, and unsafe remote file downloads before executing user tasks.
+**APIJ** (*Anti-Prompt Injection*) is a defensive guardrail that inspects untrusted documents, web pages, and remote URLs for hidden text, indirect prompt injections, and unsafe downloads. Unlike most prompt-injection skills that rely solely on generic LLM-over-LLM intuition ("check if this looks suspicious"), APIJ enforces explicit, hard-written inspection rules and warning patterns.
 
 ---
 
