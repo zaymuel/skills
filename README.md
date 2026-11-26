@@ -98,6 +98,7 @@ zaymuel/skills/
 ├── .github/workflows/                              <-- Release version-sync GitHub Action
 ├── LICENSE                                         <-- MIT License
 ├── README.md                                       <-- Installation guide & skill catalog
+├── llms.txt                                        <-- Machine-readable index for LLM crawlers & bots
 ├── package.json                                    <-- Package metadata & maintenance scripts
 ├── hooks.json                                      <-- Antigravity SessionStart update-check hook
 ├── hooks/                                          <-- Claude Code SessionStart update-check hook

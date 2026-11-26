@@ -16,7 +16,9 @@
   "scripts": {
     "sync-version": "node scripts/sync-plugin-version.mjs",
     "check-version": "node scripts/sync-plugin-version.mjs --check",
-    "check-updates": "node scripts/check-updates.mjs --plain"
+    "check-updates": "node scripts/check-updates.mjs --plain",
+    "generate-llms": "node scripts/generate-llms-txt.mjs",
+    "check-llms": "node scripts/generate-llms-txt.mjs --check"
   },
   "keywords": [
     "ai",
@@ -42,6 +44,7 @@
   "files": [
     "LICENSE",
     "README.md",
+    "llms.txt",
     "hooks.json",
     ".antigravity-plugin/",
     ".claude-plugin/",

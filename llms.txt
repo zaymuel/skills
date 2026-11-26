@@ -1,0 +1,37 @@
+# zaymuel/skills (v1.4.4)
+
+> A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, stumble learning, formatting, cartography, and paper critique.
+
+Install all skills: `npx skills@latest add zaymuel/skills`
+Browse individual skills: https://www.skills.sh/zaymuel/skills
+Repository: https://github.com/zaymuel/skills
+
+## Docs
+
+- [README](https://github.com/zaymuel/skills/blob/master/README.md): Overview, top 3 recommendations, skill table, and common questions.
+- [Installation Guide](https://github.com/zaymuel/skills/blob/master/docs/INSTALL.md): Setup instructions for npx skills, direct prompts, copy-paste, Claude Code, Codex, Gemini CLI, Google Antigravity, and SessionStart hooks.
+
+## Skills
+
+- [anti-prompt-injection](https://raw.githubusercontent.com/zaymuel/skills/master/skills/anti-prompt-injection/SKILL.md): Scan uploaded files, PDFs, documents, and external web content for hidden text, obfuscated instructions, indirect prompt injection payloads, and unsafe remote file downloads. Use whenever the user uploads a file, shares a document or URL, asks to check for hidden text or prompt injections, or when an agent/IDE (such as Google Antigravity) fetches or downloads files from external addresses. [category: security | tags: security, prompt-injection, pdf, guardrail, ssrf, untrusted-input]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/anti-prompt-injection.md
+- [code-maintainability-formatter](https://raw.githubusercontent.com/zaymuel/skills/master/skills/code-maintainability-formatter/SKILL.md): Write code and technical documents that natively adhere to language-specific formatting and linting standards (such as autopep8 and PEP 8 for Python, or latexindent and chktex for LaTeX .tex documents) from the first draft, write high-signal "why" and "what" comments (including nested data structures and complex expressions) for AI agent and human maintainability, and follow a documentation-driven workflow. Use when the user asks to write, refactor, format, document, or clean up code or LaTeX (.tex) manuscripts in Python or any other programming/markup language. [category: code-quality | tags: python, pep8, autopep8, latex, latexindent, chktex, formatting, comments]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/code-maintainability-formatter.md
+- [domain-modeling](https://raw.githubusercontent.com/zaymuel/skills/master/skills/domain-modeling/SKILL.md): Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR. [category: architecture | tags: glossary, adr, domain-driven-design, ubiquitous-language, terminology]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/domain-modeling.md
+- [grilling](https://raw.githubusercontent.com/zaymuel/skills/master/skills/grilling/SKILL.md): Grill the user relentlessly about a plan, decision, or idea. Use when the user invokes /grill-me, wants to stress-test their thinking, or uses any 'grill' trigger phrases. [category: design | tags: grill-me, design-review, interview, architecture, trade-offs, planning]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/grilling.md
+- [handoff](https://raw.githubusercontent.com/zaymuel/skills/master/skills/handoff/SKILL.md): Compact the current conversation into a handoff document for another agent to pick up. [category: workflow | tags: session-handoff, context-transfer, continuity, multi-agent]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/handoff.md
+- [map-crafting](https://raw.githubusercontent.com/zaymuel/skills/master/skills/map-crafting/SKILL.md): Generic cartographic design standards for thematic, choropleth, facility-location, and bivariate maps. Enforces composable layer pipelines, domain filtering and neutral gray masking, colorblind-safe palettes with high-contrast hydrography, distribution-aware binning, non-overlapping two-zone legend layouts, and test output isolation. Activate whenever creating, refactoring, or reviewing spatial map generators and cartographic figures. [category: geospatial | tags: cartography, gis, choropleth, bivariate, matplotlib, colorblind-safe, spatial]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/map-crafting.md
+- [paper-analysis-questions](https://raw.githubusercontent.com/zaymuel/skills/master/skills/paper-analysis-questions/SKILL.md): Generate critical, high-rigor analysis questions from academic papers, research articles, and technical reports to structure deep reading, critiques, or analytical reports. Use when the user shares one or more papers, articles, or studies and asks for guided questions, report structure, critical analysis prompts, or study questions. [category: research | tags: academic-papers, literature-review, critical-thinking, critique, study-questions]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/paper-analysis-questions.md
+- [stumble-learning](https://raw.githubusercontent.com/zaymuel/skills/master/skills/stumble-learning/SKILL.md): Generic error-to-rule distillation workflow across any repository. Logs sanitized summaries and exact locations of command failures, unexpected exceptions, and user corrections to a local incident ledger (docs/agents/errors.md), analyzes recurring structural patterns, and proposes permanent preventive policies for user-approved updates to AGENTS.md or global skills/rules. Trigger immediately upon any execution error, test failure, wrong assumption, or user correction. [category: self-improvement | tags: error-logging, rule-distillation, continuous-improvement, agents-md, debugging]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/stumble-learning.md
+- [tdd](https://raw.githubusercontent.com/zaymuel/skills/master/skills/tdd/SKILL.md): Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests. [category: testing | tags: test-driven-development, red-green-refactor, integration-tests, seams, cartesian-testing]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/tdd.md
+- [terminal-enforcer](https://raw.githubusercontent.com/zaymuel/skills/master/skills/terminal-enforcer/SKILL.md): Enforces strict terminal command allowlists, read-only Git/PowerShell inspection rules, Python execution authorization gates, and pipeline isolation. Trigger before executing any shell, PowerShell, Git, or Python command. [category: security | tags: terminal, powershell, git, python, allowlist, pipeline-safety]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/terminal-enforcer.md
+- [workspace-enforcer](https://raw.githubusercontent.com/zaymuel/skills/master/skills/workspace-enforcer/SKILL.md): Enforces strict repository hygiene, draft script quarantine, workspace confinement, Git index protection, and TODO-first task tracking. Trigger on any coding, file creation, debugging, or repository management task. [category: governance | tags: repository-hygiene, todo, gitignore, privacy, anonymization, architecture, mermaid]
+  - Guide: https://github.com/zaymuel/skills/blob/master/docs/workspace-enforcer.md
