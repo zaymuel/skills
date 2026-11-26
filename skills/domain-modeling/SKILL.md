@@ -1,6 +1,11 @@
 ---
 name: domain-modeling
 description: Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.
+license: MIT
+metadata:
+  author: mattpocock (modified by zaymuel)
+  category: architecture
+  tags: glossary, adr, domain-driven-design, ubiquitous-language, terminology
 ---
 
 # Domain Modeling

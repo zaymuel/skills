@@ -1,6 +1,11 @@
 ---
 name: terminal-enforcer
 description: Enforces strict terminal command allowlists, read-only Git/PowerShell inspection rules, Python execution authorization gates, and pipeline isolation. Trigger before executing any shell, PowerShell, Git, or Python command.
+license: MIT
+metadata:
+  author: zaymuel
+  category: security
+  tags: terminal, powershell, git, python, allowlist, pipeline-safety
 ---
 
 # Terminal Enforcer: Command Execution & Pipeline Policy

@@ -1,6 +1,11 @@
 ---
 name: anti-prompt-injection
 description: Scan uploaded files, PDFs, documents, and external web content for hidden text, obfuscated instructions, indirect prompt injection payloads, and unsafe remote file downloads. Use whenever the user uploads a file, shares a document or URL, asks to check for hidden text or prompt injections, or when an agent/IDE (such as Google Antigravity) fetches or downloads files from external addresses.
+license: MIT
+metadata:
+  author: yaklang (adapted and inverted by zaymuel)
+  category: security
+  tags: security, prompt-injection, pdf, guardrail, ssrf, untrusted-input
 ---
 
 # Anti-Prompt Injection

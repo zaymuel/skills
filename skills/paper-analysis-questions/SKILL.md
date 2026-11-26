@@ -1,6 +1,11 @@
 ---
 name: paper-analysis-questions
 description: Generate critical, high-rigor analysis questions from academic papers, research articles, and technical reports to structure deep reading, critiques, or analytical reports. Use when the user shares one or more papers, articles, or studies and asks for guided questions, report structure, critical analysis prompts, or study questions.
+license: MIT
+metadata:
+  author: zaymuel
+  category: research
+  tags: academic-papers, literature-review, critical-thinking, critique, study-questions
 ---
 
 # Paper Analysis Questions

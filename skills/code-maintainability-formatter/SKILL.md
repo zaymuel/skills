@@ -1,6 +1,11 @@
 ---
 name: code-maintainability-formatter
 description: Write code and technical documents that natively adhere to language-specific formatting and linting standards (such as autopep8 and PEP 8 for Python, or latexindent and chktex for LaTeX .tex documents) from the first draft, write high-signal "why" and "what" comments (including nested data structures and complex expressions) for AI agent and human maintainability, and follow a documentation-driven workflow. Use when the user asks to write, refactor, format, document, or clean up code or LaTeX (.tex) manuscripts in Python or any other programming/markup language.
+license: MIT
+metadata:
+  author: zaymuel
+  category: code-quality
+  tags: python, pep8, autopep8, latex, latexindent, chktex, formatting, comments
 ---
 
 # Code Maintainability Formatter

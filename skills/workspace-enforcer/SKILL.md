@@ -1,6 +1,11 @@
 ---
 name: workspace-enforcer
 description: Enforces strict repository hygiene, draft script quarantine, workspace confinement, Git index protection, and TODO-first task tracking. Trigger on any coding, file creation, debugging, or repository management task.
+license: MIT
+metadata:
+  author: zaymuel
+  category: governance
+  tags: repository-hygiene, todo, gitignore, privacy, anonymization, architecture, mermaid
 ---
 
 # Workspace Enforcer: Repository Hygiene & Review Policy

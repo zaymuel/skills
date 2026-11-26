@@ -7,6 +7,11 @@ description: >-
     distribution-aware binning, non-overlapping two-zone legend layouts, and test
     output isolation. Activate whenever creating, refactoring, or reviewing spatial
     map generators and cartographic figures.
+license: MIT
+metadata:
+  author: zaymuel
+  category: geospatial
+  tags: cartography, gis, choropleth, bivariate, matplotlib, colorblind-safe, spatial
 ---
 
 # Map Crafting: Thematic & Bivariate Cartography Standards

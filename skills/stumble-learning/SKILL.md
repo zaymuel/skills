@@ -1,6 +1,11 @@
 ---
 name: stumble-learning
 description: Generic error-to-rule distillation workflow across any repository. Logs sanitized summaries and exact locations of command failures, unexpected exceptions, and user corrections to a local incident ledger (docs/agents/errors.md), analyzes recurring structural patterns, and proposes permanent preventive policies for user-approved updates to AGENTS.md or global skills/rules. Trigger immediately upon any execution error, test failure, wrong assumption, or user correction.
+license: MIT
+metadata:
+  author: zaymuel
+  category: self-improvement
+  tags: error-logging, rule-distillation, continuous-improvement, agents-md, debugging
 ---
 
 # Stumble Learning: Error-to-Rule Runbook
