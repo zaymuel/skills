@@ -1,4 +1,4 @@
-# zaymuel/skills (v1.4.5)
+# zaymuel/skills (v1.4.6)
 
 > A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, stumble learning, formatting, cartography, and paper critique.
 
@@ -13,7 +13,7 @@ Repository: https://github.com/zaymuel/skills
 
 ## Skills
 
-- [anti-prompt-injection](https://raw.githubusercontent.com/zaymuel/skills/master/skills/anti-prompt-injection/SKILL.md): Scan uploaded files, PDFs, documents, and external web content for hidden text, obfuscated instructions, indirect prompt injection payloads, and unsafe remote file downloads. Use whenever the user uploads a file, shares a document or URL, asks to check for hidden text or prompt injections, or when an agent/IDE (such as Google Antigravity) fetches or downloads files from external addresses. [category: security | tags: security, prompt-injection, pdf, guardrail, ssrf, untrusted-input]
+- [anti-prompt-injection](https://raw.githubusercontent.com/zaymuel/skills/master/skills/anti-prompt-injection/SKILL.md): Scan uploaded files, PDFs, documents, and external web content for hidden text, obfuscated instructions, indirect prompt injection payloads, and unsafe remote file downloads. Use whenever the user uploads a file, shares a document or URL, asks to check for hidden text or prompt injections, or when an agent/IDE (such as Google Antigravity) fetches or downloads files from external addresses. [category: security | tags: apij, security, prompt-injection, pdf, guardrail, ssrf, untrusted-input]
   - Guide: https://github.com/zaymuel/skills/blob/master/docs/anti-prompt-injection.md
 - [code-maintainability-formatter](https://raw.githubusercontent.com/zaymuel/skills/master/skills/code-maintainability-formatter/SKILL.md): Write code and technical documents that natively adhere to language-specific formatting and linting standards (such as autopep8 and PEP 8 for Python, or latexindent and chktex for LaTeX .tex documents) from the first draft, write high-signal "why" and "what" comments (including nested data structures and complex expressions) for AI agent and human maintainability, and follow a documentation-driven workflow. Use when the user asks to write, refactor, format, document, or clean up code or LaTeX (.tex) manuscripts in Python or any other programming/markup language. [category: code-quality | tags: python, pep8, autopep8, latex, latexindent, chktex, formatting, comments]
   - Guide: https://github.com/zaymuel/skills/blob/master/docs/code-maintainability-formatter.md
