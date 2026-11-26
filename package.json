@@ -33,7 +33,11 @@
     "stumble-learning",
     "code-quality",
     "cartography",
-    "research"
+    "research",
+    "grilling",
+    "handoff",
+    "domain-modeling",
+    "tdd"
   ],
   "files": [
     "LICENSE",
