@@ -1,6 +1,6 @@
 ---
 name: workspace-enforcer
-description: Enforces strict repository hygiene, draft script quarantine, workspace confinement, Git index protection, and TODO-first task tracking. Trigger on any coding, file creation, debugging, or repository management task.
+description: Enforces strict repository hygiene, draft script quarantine, workspace confinement, Git index protection, TODO-first task tracking, and research/assignment/report directory bootstrapping. Trigger on any coding, file creation, debugging, repository management, or new research/report workspace setup task.
 license: MIT
 metadata:
   author: zaymuel
@@ -12,7 +12,7 @@ metadata:
 
 ## When to Use
 
-Activate this skill at the start of any software engineering, scripting, debugging, or documentation task within a tracked repository.
+Activate this skill at the start of any software engineering, scripting, debugging, documentation, or research, assignment, and report directory setup task.
 
 ## Core Directives
 
@@ -106,3 +106,13 @@ Activate this skill at the start of any software engineering, scripting, debuggi
     - **Plan & Record Segmentation First (ADR):** Before implementing any multi-stage workflow or project, plan the functional module boundaries upfront and record the architectural decision in `docs/00_architecture_and_decisions.md` (Directive 9) or a dedicated ADR under `docs/adr/` (via [`domain-modeling`](../domain-modeling/SKILL.md)), specifying each stage's responsibility, inputs/outputs, shared config contract, and paired test file.
     - **Segment by Functionality Under `scripts/`:** Avoid monolithic scripts; divide production logic into cohesive, single-responsibility, sequentially numbered modules under `scripts/` (e.g., `scripts/config.py` for centralized paths/constants, followed by `scripts/01_<stage>.py`, `scripts/02_<stage>.py`, ..., `scripts/0N_<stage>.py`), paired with matching unit/integration suites in `tests/test_00_config.py`, `tests/test_01_<stage>.py`, ..., so every stage remains independently executable, cacheable, and testable.
     - **Aggregate via Root `main.py` Orchestrator:** Provide a single canonical root entry point (`main.py`) that aggregates and chains the segmented modules in `scripts/`, supports selective stage execution (e.g., `--step`, `--from-step`, `--to-step`, `--force`), preserves strict CLI flag parity with every underlying step script, and is verified by `tests/test_main.py`.
+
+18. **RESEARCH, ASSIGNMENT & REPORT WORKSPACE BOOTSTRAP (`main.tex` & `.gitignore`)**
+    - Whenever creating a new work directory for research, assignments, or reports, immediately bootstrap the directory with two files:
+        - `main.tex`: the primary LaTeX manuscript entry point.
+        - `.gitignore`: an allowlist-only ignore file that ignores everything except `main.tex`:
+
+          ```gitignore
+          *
+          !main.tex
+          ```
