@@ -1,4 +1,4 @@
-# zaymuel/skills (v1.4.7)
+# zaymuel/skills (v1.4.8)
 
 > A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, stumble learning, formatting, cartography, and paper critique.
 
@@ -33,5 +33,5 @@ Repository: https://github.com/zaymuel/skills
   - Guide: https://github.com/zaymuel/skills/blob/master/docs/tdd.md
 - [terminal-enforcer](https://raw.githubusercontent.com/zaymuel/skills/master/skills/terminal-enforcer/SKILL.md): Enforces strict terminal command allowlists, read-only Git/PowerShell inspection rules, Python execution authorization gates, and pipeline isolation. Trigger before executing any shell, PowerShell, Git, or Python command. [category: security | tags: terminal, powershell, git, python, allowlist, pipeline-safety]
   - Guide: https://github.com/zaymuel/skills/blob/master/docs/terminal-enforcer.md
-- [workspace-enforcer](https://raw.githubusercontent.com/zaymuel/skills/master/skills/workspace-enforcer/SKILL.md): Enforces strict repository hygiene, draft script quarantine, workspace confinement, Git index protection, and TODO-first task tracking. Trigger on any coding, file creation, debugging, or repository management task. [category: governance | tags: repository-hygiene, todo, gitignore, privacy, anonymization, architecture, mermaid]
+- [workspace-enforcer](https://raw.githubusercontent.com/zaymuel/skills/master/skills/workspace-enforcer/SKILL.md): Enforces strict repository hygiene, draft script quarantine, workspace confinement, Git index protection, TODO-first task tracking, and research/assignment/report directory bootstrapping. Trigger on any coding, file creation, debugging, repository management, or new research/report workspace setup task. [category: governance | tags: repository-hygiene, todo, gitignore, privacy, anonymization, architecture, mermaid]
   - Guide: https://github.com/zaymuel/skills/blob/master/docs/workspace-enforcer.md

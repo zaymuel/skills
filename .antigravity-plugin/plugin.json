@@ -2,7 +2,7 @@
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "zaymuel-skills",
   "displayName": "Zaymuel Skills",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, stumble learning, formatting, cartography, and paper critique.",
   "author": "zaymuel",
   "license": "MIT",
