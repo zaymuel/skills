@@ -1,6 +1,6 @@
 {
   "name": "zaymuel-skills",
-  "version": "1.4.9",
+  "version": "1.4.10",
   "description": "A general-use collection of modular AI agent skills for prompt-injection defense, terminal safety, repository governance, stumble learning, formatting, cartography, and paper critique.",
   "author": {
     "name": "zaymuel"
