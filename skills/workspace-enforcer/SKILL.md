@@ -43,7 +43,7 @@ Activate this skill at the start of any software engineering, scripting, debuggi
     - When reporting created or modified files in chat, provide:
         - **Suggested Git Commit Message**: A concise, ready-to-use commit subject line (and optional brief body when multiple logical changes were made) for manual staging/committing.
         - **Changes Grouped by Logical Change**: Organize affected files by *what changed* rather than listing every file with separate per-file summaries:
-            - **Level 1 (`*`):** Short title of the logical change or category (e.g., `Fix the IDA/VOLTA separation in GTFS`, `Use per-stop int offsets + kinematic model`).
+            - **Level 1 (`*`):** Short title of the logical change or category (e.g., `Fix the inbound/outbound separation in GTFS`, `Use per-stop int offsets + kinematic model`).
             - **Level 2 (`  *`, 2-space indented):** Clickable Markdown links to all files touched by that change (including `#L<start>-L<end>` line ranges for edited files). A file may appear under multiple logical changes when it participates in more than one change.
     - Strictly forbid quoting, blockquoting, or echoing any file contents, sections, lists, or code snippets, keeping all in-depth details strictly inside the file, to avoid redundancy and token bloat.
 
