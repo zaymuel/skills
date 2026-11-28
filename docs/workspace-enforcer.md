@@ -36,7 +36,7 @@ All temporary scripts, probes, and scratch explorations are strictly quarantined
 
 * ✅ **TODO-First Task Tracking (`TODO.md`)**: Every instruction, bugfix, or feature is logged as a pending item (`- [ ]`) in root `TODO.md` before modifying code (using 2-space indented subtasks for multi-step requests) and marked `[X]` upon completion. Selecting items from an in-document staging list automatically consumes and prunes them.
 * 🛠️ **Canonical Entry Points & Modular Shell Commands**: Agents use native CLI entry points (`main.py`, `pytest`, official scripts) instead of throwaway wrapper runners, and keep Git and PowerShell strictly separate (never combining them on the same command line via `|`, `;`, `&&`, or `||`).
-* 📋 **Hierarchical Link & Nested Summary Reporting**: Chat responses for created or modified files use a strict 2-level Markdown list (clickable file link on Level 1, 2-space indented change bullets on Level 2) without quoting or echoing file contents in chat.
+* 📋 **Change-Grouped Reporting & Commit Suggestions**: Chat responses for created or modified files include a suggested Git commit message and group clickable file links by logical change (allowing files to overlap across categories) instead of repeating per-file summaries, without quoting or echoing file contents in chat.
 * 📖 **Canonical Specifications Only**: Agents never probe internal session transcripts or telemetry logs (`transcript.jsonl`, `.system_generated/`) to infer rules, relying strictly on tracked docs (`AGENTS.md`, `docs/`, ADRs) and global skills.
 
 ### 4. Documentation Blueprint & Communication Standards

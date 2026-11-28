@@ -39,10 +39,12 @@ Activate this skill at the start of any software engineering, scripting, debuggi
     - Never read, grep, or parse internal agent session logs, telemetry files, or conversation transcripts (`transcript.jsonl`, `.system_generated/`, internal brain directories) to infer rules or past state.
     - Rely exclusively on tracked repository documentation (`AGENTS.md`, `docs/`, and ADRs) or global configuration files (`GEMINI.md`, `SKILL.md`). If a constraint or architectural rule is ambiguous, ask the user directly for clarification, immediately codify the resolved decision in the project's ADRs or documentation, and propose creating or updating a skill when a reusable rule emerges.
 
-5. **HIERARCHICAL ARTIFACT REPORTING (FILE LINK & NESTED SUMMARY)**
-    - Format all file creations and modifications in chat using a strict 2-level Markdown list hierarchy:
-        - **Level 1 (`*`):** Output exclusively the clickable Markdown file link (including `#L<start>-L<end>` line numbers only when editing an existing file).
-        - **Level 2 (`  *`, 2-space indented):** List one or more concise bullet points describing what changed in that file. Never repeat the filename across multiple flat lines.
+5. **CHANGE-GROUPED REPORTING & COMMIT MESSAGE SUGGESTION**
+    - When reporting created or modified files in chat, provide:
+        - **Suggested Git Commit Message**: A concise, ready-to-use commit subject line (and optional brief body when multiple logical changes were made) for manual staging/committing.
+        - **Changes Grouped by Logical Change**: Organize affected files by *what changed* rather than listing every file with separate per-file summaries:
+            - **Level 1 (`*`):** Short title of the logical change or category (e.g., `Fix the IDA/VOLTA separation in GTFS`, `Use per-stop int offsets + kinematic model`).
+            - **Level 2 (`  *`, 2-space indented):** Clickable Markdown links to all files touched by that change (including `#L<start>-L<end>` line ranges for edited files). A file may appear under multiple logical changes when it participates in more than one change.
     - Strictly forbid quoting, blockquoting, or echoing any file contents, sections, lists, or code snippets, keeping all in-depth details strictly inside the file, to avoid redundancy and token bloat.
 
 6. **CANONICAL ENTRY POINTS & MODULAR SHELL COMMANDS**
@@ -110,9 +112,10 @@ Activate this skill at the start of any software engineering, scripting, debuggi
 18. **RESEARCH, ASSIGNMENT & REPORT WORKSPACE BOOTSTRAP (`main.tex` & `.gitignore`)**
     - Whenever creating a new work directory for research, assignments, or reports, immediately bootstrap the directory with two files:
         - `main.tex`: the primary LaTeX manuscript entry point.
-        - `.gitignore`: an allowlist-only ignore file that ignores everything except `main.tex`:
+        - `.gitignore`: an allowlist-only ignore file that ignores everything except `main.tex` and `references.bib`:
 
           ```gitignore
           *
           !main.tex
+          !references.bib
           ```
